@@ -9,67 +9,6 @@
 */
 {
   "sections": {
-    "slideshow_ip6CaE": {
-      "type": "slideshow",
-      "blocks": {
-        "image_cwALCL": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2023-03-27_Onomao25438_a9d15246-012b-421f-9d3e-fbea5a1b91db.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/2023-03-27_Onomao25438_a9d15246-012b-421f-9d3e-fbea5a1b91db.jpg",
-            "subheading": "",
-            "upper_subheading": "simply the best",
-            "upper_subheading_custom_font": false,
-            "upper_subheading_font_size": 1,
-            "upper_subheading_font_size_mobile": 0.8,
-            "upper_subheading_gap": 1,
-            "upper_subheading_gap_mobile": 0.5,
-            "title": "Our cup",
-            "h1_custom_font": false,
-            "h1_custom_font_size": 3,
-            "h1_custom_font_size_mobile": 3,
-            "h1_custom_gap": 1,
-            "h1_custom_gap_mobile": 0,
-            "h6_custom_font": false,
-            "h6_custom_font_size": 6,
-            "h6_custom_font_size_mobile": 7.6,
-            "h6_custom_gap": 1,
-            "h6_custom_gap_mobile": 0,
-            "mobile_text_position": "place-self-center-start text-start",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "content_max_width": 780,
-            "button_1_text": "Shop",
-            "button_1_link": "",
-            "button_1_style": "solid",
-            "button_1_background": "#274fde",
-            "button_1_text_color": "#ffffff",
-            "button_2_text": "",
-            "button_2_link": "",
-            "button_2_style": "outline",
-            "button_2_background": "#ffffff",
-            "button_2_text_color": "#000000",
-            "background": "",
-            "background_opacity": 0,
-            "text_color": "#ffffff",
-            "border_color": "",
-            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
-          }
-        }
-      },
-      "block_order": [
-        "image_cwALCL"
-      ],
-      "settings": {
-        "allow_transparent_header": true,
-        "show_next_section_button": true,
-        "media_size": "auto",
-        "autoplay": true,
-        "autoplay_pause_on_video": true,
-        "cycle_speed": 5,
-        "background": "#000000",
-        "controls_color": "#ffffff"
-      }
-    },
     "image_overlay_link_y6HAxQ": {
       "type": "image_overlay_link",
       "blocks": {
@@ -699,7 +638,6 @@
     }
   },
   "order": [
-    "slideshow_ip6CaE",
     "image_overlay_link_y6HAxQ",
     "featured_collections_ADFPUj",
     "featured_collections_nb8qqE",
