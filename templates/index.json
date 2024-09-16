@@ -9,10 +9,10 @@
 */
 {
   "sections": {
-    "slideshow_reworked_KcxmUV": {
+    "slideshow_reworked_xmx9EB": {
       "type": "slideshow-reworked",
       "blocks": {
-        "image_JD6EMw": {
+        "image_wHXfye": {
           "type": "image",
           "settings": {
             "subheading": "Tell your fantastic story",
@@ -23,6 +23,16 @@
             "upper_subheading_gap": 1,
             "upper_subheading_gap_mobile": 0.5,
             "title": "Slide 1",
+            "h1_custom_font": false,
+            "h1_custom_font_size": 2,
+            "h1_custom_font_size_mobile": 1,
+            "h1_custom_gap": 1,
+            "h1_custom_gap_mobile": 0,
+            "h6_custom_font": false,
+            "h6_custom_font_size": 2,
+            "h6_custom_font_size_mobile": 0.6,
+            "h6_custom_gap": 1,
+            "h6_custom_gap_mobile": 0,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
             "content_max_width": 780,
@@ -40,10 +50,10 @@
             "background_opacity": 50,
             "text_color": "#ffffff",
             "border_color": "",
-            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)"
           }
         },
-        "image_6gGk7P": {
+        "image_CX8Qm3": {
           "type": "image",
           "settings": {
             "subheading": "Tell your fantastic story",
@@ -54,6 +64,16 @@
             "upper_subheading_gap": 1,
             "upper_subheading_gap_mobile": 0.5,
             "title": "Slide 2",
+            "h1_custom_font": false,
+            "h1_custom_font_size": 2,
+            "h1_custom_font_size_mobile": 1,
+            "h1_custom_gap": 1,
+            "h1_custom_gap_mobile": 0,
+            "h6_custom_font": false,
+            "h6_custom_font_size": 2,
+            "h6_custom_font_size_mobile": 0.6,
+            "h6_custom_gap": 1,
+            "h6_custom_gap_mobile": 0,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
             "content_max_width": 780,
@@ -76,8 +96,8 @@
         }
       },
       "block_order": [
-        "image_JD6EMw",
-        "image_6gGk7P"
+        "image_wHXfye",
+        "image_CX8Qm3"
       ],
       "settings": {
         "allow_transparent_header": true,
@@ -719,7 +739,7 @@
     }
   },
   "order": [
-    "slideshow_reworked_KcxmUV",
+    "slideshow_reworked_xmx9EB",
     "image_overlay_link_y6HAxQ",
     "featured_collections_ADFPUj",
     "featured_collections_nb8qqE",
