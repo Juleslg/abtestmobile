@@ -15,6 +15,10 @@
         "image_M6x7dB": {
           "type": "image",
           "settings": {
+            "upper_subheading_alignment": "end",
+            "title_alignment": "end",
+            "subheading_alignment": "end",
+            "buttons_alignment": "end",
             "image": "shopify:\/\/shop_images\/2023-03-27_Onomao25438_a9d15246-012b-421f-9d3e-fbea5a1b91db.jpg",
             "mobile_image": "shopify:\/\/shop_images\/2023-03-27_Onomao25438_a9d15246-012b-421f-9d3e-fbea5a1b91db.jpg",
             "subheading": "The one and only",
@@ -43,6 +47,10 @@
         "image_VMrPFc": {
           "type": "image",
           "settings": {
+            "upper_subheading_alignment": "start",
+            "title_alignment": "start",
+            "subheading_alignment": "start",
+            "buttons_alignment": "start",
             "image": "shopify:\/\/shop_images\/C-01-TRAD-SAUC-BLUE-001-02-web.jpg",
             "mobile_image": "shopify:\/\/shop_images\/C-01-TRAD-SAUC-BLUE-001-02-web.jpg",
             "subheading": "Tell your fantastic story",
