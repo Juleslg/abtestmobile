@@ -80,17 +80,16 @@ may have important consequence on the section itself.
 
           <div class="slideshow__slide-content {% if is_boxed %}slideshow__slide-content--boxed{% endif %} {% if has_border %}slideshow__slide-content--with-border{% endif %} {% if has_inside_offset %}slideshow__slide-content--with-border-offset{% endif %} {{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }}" style="{% render 'surface', background: block.settings.background, background_opacity: block.settings.background_opacity, text_color: block.settings.text_color, border_color: block.settings.border_color %}">
             <div class="prose">
-              
               {%- if block.settings.upper_subheading != blank -%}
-                <p class="h6">{{ block.settings.upper_subheading }}</p>
+                <p class="h6" style="font-size: {{ block.settings.upper_subheading_size }}px; font-weight: {{ block.settings.upper_subheading_weight }};">{{ block.settings.upper_subheading }}</p>
               {%- endif -%}
-
+      
               {%- if block.settings.title != blank -%}
-                <p class="h1">{{block.settings.title }}</p>
+                <p class="h1" style="font-size: {{ block.settings.title_size }}px; font-weight: {{ block.settings.title_weight }};">{{ block.settings.title }}</p>
               {%- endif -%}
-
+      
               {%- if block.settings.subheading != blank -%}
-                <p class="h6">{{ block.settings.subheading }}</p>
+                <p class="h6" style="font-size: {{ block.settings.subheading_size }}px; font-weight: {{ block.settings.subheading_weight }};">{{ block.settings.subheading }}</p>
               {%- endif -%}
 
               {%- if block.settings.button_1_text != blank or block.settings.button_2_text != blank -%}
@@ -273,6 +272,58 @@ may have important consequence on the section itself.
       "type": "image",
       "name": "t:sections.slideshow.blocks.image.name",
       "settings": [
+
+      {
+          "type": "range",
+          "id": "upper_subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Upper Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "upper_subheading_weight",
+          "label": "Upper Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 20,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Title Font Size",
+          "default": 48
+        },
+        {
+          "type": "number",
+          "id": "title_weight",
+          "label": "Title Font Weight",
+          "default": 700,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "range",
+          "id": "subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "subheading_weight",
+          "label": "Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
         {
           "type": "image_picker",
           "id": "image",
