@@ -15,6 +15,7 @@
         "image_M6x7dB": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/2023-03-27_Onomao25438_a9d15246-012b-421f-9d3e-fbea5a1b91db.jpg",
             "mobile_image": "shopify:\/\/shop_images\/2023-03-27_Onomao25438_a9d15246-012b-421f-9d3e-fbea5a1b91db.jpg",
             "subheading": "Tell your fantastic story",
             "upper_subheading": "New arrival",
@@ -42,6 +43,8 @@
         "image_VMrPFc": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/C-01-TRAD-SAUC-BLUE-001-02-web.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/C-01-TRAD-SAUC-BLUE-001-02-web.jpg",
             "subheading": "Tell your fantastic story",
             "upper_subheading": "New arrival",
             "title": "Slide 2",
@@ -62,7 +65,7 @@
             "background_opacity": 50,
             "text_color": "#ffffff",
             "border_color": "",
-            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)"
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
           }
         }
       },
