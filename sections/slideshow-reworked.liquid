@@ -80,24 +80,18 @@ may have important consequence on the section itself.
 
           <div class="slideshow__slide-content {% if is_boxed %}slideshow__slide-content--boxed{% endif %} {% if has_border %}slideshow__slide-content--with-border{% endif %} {% if has_inside_offset %}slideshow__slide-content--with-border-offset{% endif %} {{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }}" style="{% render 'surface', background: block.settings.background, background_opacity: block.settings.background_opacity, text_color: block.settings.text_color, border_color: block.settings.border_color %}">
             <div class="prose">
-
-
-                {%- if block.settings.upper_subheading != blank -%}
-                  <p class="{% if block.settings.upper_subheading_custom_font %} h6 custom-h6-font-size upper{{ section.id }} {% else %} h6 {% endif %}">
-                   {{ block.settings.upper_subheading }} </p>
-                {%- endif -%}
-
-                {%- if block.settings.title != blank -%}
-                <p class=" {% if block.settings.h1_custom_font %} h1 custom-h1-font-size{{ section.id }} {% else %} h1  {% endif %}">
-                  {{block.settings.title }}</p>
-                {%- endif -%}
-
-              {%- if block.settings.subheading != blank -%}
-                <p class="{% if block.settings.h6_custom_font %} h6 custom-h6-font-size{{ section.id }} {% else %} h6  {% endif %}">{{
-                  block.settings.subheading }}</p>
+              
+              {%- if block.settings.upper_subheading != blank -%}
+                <p class="h6">{{ block.settings.upper_subheading }}</p>
               {%- endif -%}
 
+              {%- if block.settings.title != blank -%}
+                <p class="h1">{{block.settings.title }}</p>
+              {%- endif -%}
 
+              {%- if block.settings.subheading != blank -%}
+                <p class="h6">{{ block.settings.subheading }}</p>
+              {%- endif -%}
 
               {%- if block.settings.button_1_text != blank or block.settings.button_2_text != blank -%}
                 {%- assign button_mobile_position = block.settings.mobile_text_position | split: 'text-' | last -%}
@@ -109,8 +103,7 @@ may have important consequence on the section itself.
                   {%- capture button_wrapper_class -%}button-group button-group--same-width justify-{{ button_mobile_position }} sm:justify-{{ button_desktop_position }}{%- endcapture -%}
                 {%- endif -%}
 
-                <div
-                  class="{{ button_wrapper_class }} {% if block.settings.h6_custom_font %} button_top_margin{{ section.id }} {% endif %}">
+                <div class="{{ button_wrapper_class }}">
                   {%- if block.settings.button_1_text != blank -%}
                     {%- render 'button', href: block.settings.button_1_link, content: block.settings.button_1_text, style: block.settings.button_1_style, background: block.settings.button_1_background, text_color: block.settings.button_1_text_color -%}
                   {%- endif -%}
@@ -179,8 +172,8 @@ may have important consequence on the section itself.
 
 
 {% schema %}
-{
-  "name": "slideshow_reworked",
+
+"name": "slideshow_reworked",
   "class": "shopify-section--slideshow",
   "tag": "section",
   "max_blocks": 6,
@@ -188,7 +181,7 @@ may have important consequence on the section itself.
     "groups": ["header", "custom.overlay"]
   },
   "settings": [
-      {
+    {
       "type": "checkbox",
       "id": "allow_transparent_header",
       "label": "t:global.section.allow_transparent_header",
@@ -303,64 +296,11 @@ may have important consequence on the section itself.
           "default": "Tell your fantastic story"
         },
         {
-  "type": "inline_richtext",
-  "id": "upper_subheading",
-  "label": "Upper Subheading",
-  "default": "New arrival"
-},
-{
-  "type": "checkbox",
-  "id": "upper_subheading_custom_font",
-  "label": "Upper Subheading Use Custom Font size",
-  "default": false
-},
-{
-  "type": "range",
-  "id": "upper_subheading_font_size",
-  "min": 0.1,
-  "max": 10,
-  "step": 0.1,
-  "unit": "rem",
-  "label": "Upper Subheading Font Size Desktop",
-  "default": 1
-},
-{
-  "type": "range",
-  "id": "upper_subheading_font_size_mobile",
-  "min": 0.1,
-  "max": 10,
-  "step": 0.1,
-  "unit": "rem",
-  "label": "Upper Subheading Font Size Mobile",
-  "default": 0.8
-},
-{
-  "type": "range",
-  "id": "upper_subheading_gap",
-  "min": -5,
-  "max": 5,
-  "step": 0.1,
-  "unit": "rem",
-  "label": "Gap Between Upper Subheading and Title Desktop",
-  "default": 1
-},
-{
-  "type": "range",
-  "id": "upper_subheading_gap_mobile",
-  "min": -5,
-  "max": 5,
-  "step": 0.1,
-  "unit": "rem",
-  "label": "Gap Between Upper Subheading and Title Mobile",
-  "default": 0.5
-},
-
-
-
-
-
-        
-
+          "type": "inline_richtext",
+          "id": "upper_subheading",
+          "label": "Upper Subheading",
+          "default": "New arrival"
+        },
         {
           "type": "inline_richtext",
           "id": "title",
@@ -368,101 +308,6 @@ may have important consequence on the section itself.
           "default": "Image slide"
         },
         {
-      "type": "checkbox",
-      "id": "h1_custom_font",
-      "label": "H1 Use Custom Font size",
-      "info": "toggel to set a custom font size",
-      "default": false
-      },
-      {
-      "type": "range",
-      "id": "h1_custom_font_size",
-      "min": 0.1,
-      "max": 10,
-      "step": 0.1,
-      "unit": "rem",
-      "label": "H1 Custom Font Size Desktop",
-      "default": 2
-      },
-      {
-      "type": "range",
-      "id": "h1_custom_font_size_mobile",
-      "min": 0.1,
-      "max": 10,
-      "step": 0.1,
-      "unit": "rem",
-      "label": "H1 Custom Font Size Mobile",
-      "default": 1
-      },
-      {
-      "type": "range",
-      "id": "h1_custom_gap",
-      "min": -10,
-      "max": 10,
-      "step": 0.2,
-      "unit": "rem",
-      "label": "Gap Between H1 and H6 Desktop",
-      "default": 1
-      },
-      {
-      "type": "range",
-      "id": "h1_custom_gap_mobile",
-      "min": -10,
-      "max": 10,
-      "step": 0.2,
-      "unit": "rem",
-      "label": "Gap Between H1 and H6 Mobile",
-      "default": 0
-      },
-      {
-      "type": "checkbox",
-      "id": "h6_custom_font",
-      "label": "H6 Use Custom Font size",
-      "info": "toggel to set a custom font size",
-      "default": false
-      },
-      {
-      "type": "range",
-      "id": "h6_custom_font_size",
-      "min": 0.1,
-      "max": 10,
-      "step": 0.1,
-      "unit": "rem",
-      "label": "H6 Custom Font Size Desktop",
-      "default": 2
-      },
-      {
-      "type": "range",
-      "id": "h6_custom_font_size_mobile",
-      "min": 0.1,
-      "max": 10,
-      "step": 0.1,
-      "unit": "rem",
-      "label": "H6 Custom Font Size Mobile",
-      "default": 0.6
-      },
-      {
-      "type": "range",
-      "id": "h6_custom_gap",
-      "min": -10,
-      "max": 10,
-      "step": 0.2,
-      "unit": "rem",
-      "label": "Gap Between H6 and Button Desktop",
-      "default": 1
-      },
-      {
-      "type": "range",
-      "id": "h6_custom_gap_mobile",
-      "min": -10,
-      "max": 10,
-      "step": 0.2,
-      "unit": "rem",
-      "label": "Gap Between H6 and Button Mobile",
-      "default": 0
-      },
-
-      {
           "type": "select",
           "id": "mobile_text_position",
           "label": "t:global.position.mobile_content_position",
@@ -976,5 +821,5 @@ may have important consequence on the section itself.
       ]
     }
   ]
-}
+
 {% endschema %}
