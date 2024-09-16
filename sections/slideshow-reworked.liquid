@@ -78,7 +78,7 @@ may have important consequence on the section itself.
             endif
           %}
 
-          <div class="slideshow__slide-content {% if is_boxed %}slideshow__slide-content--boxed{% endif %} {% if has_border %}slideshow__slide-content--with-border{% endif %} {% if has_inside_offset %}slideshow__slide-content--with-border-offset{% endif %} {{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }}" style="{% render 'surface', background: block.settings.background, background_opacity: block.settings.background_opacity, text_color: block.settings.text_color, border_color: block.settings.border_color %}">
+          <div class="slideshow__slide-content {% if is_boxed %}slideshow__slide-content--boxed{% endif %} {% if has_border %}slideshow__slide-content--with-border{% endif %} {% if has_inside_offset %}slideshow__slide-content--with-border-offset{% endif %} {{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }}" style="{% render 'surface', background: block.settings.background, background_opacity: 0, text_color: block.settings.text_color, border_color: block.settings.border_color %}">
             <div class="prose">
               {%- if block.settings.upper_subheading != blank -%}
                 <p class="h6" style="font-size: {{ block.settings.upper_subheading_size }}px; font-weight: {{ block.settings.upper_subheading_weight }};">{{ block.settings.upper_subheading }}</p>
