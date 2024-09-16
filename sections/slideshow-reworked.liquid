@@ -80,45 +80,7 @@ may have important consequence on the section itself.
 
           <div class="slideshow__slide-content {% if is_boxed %}slideshow__slide-content--boxed{% endif %} {% if has_border %}slideshow__slide-content--with-border{% endif %} {% if has_inside_offset %}slideshow__slide-content--with-border-offset{% endif %} {{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }}" style="{% render 'surface', background: block.settings.background, background_opacity: block.settings.background_opacity, text_color: block.settings.text_color, border_color: block.settings.border_color %}">
             <div class="prose">
-              
-              <style>
-                .custom-h1-font-size{{ section.id }} {
-                  font-size: {{ block.settings.h1_custom_font_size }}rem !important;
-                  margin-bottom: {{ block.settings.h1_custom_gap }}rem!important;
-                }
-                .custom-h6-font-size{{ section.id }} {
-                  font-size: {{ block.settings.h6_custom_font_size }}rem !important;
-                }
-                .button_top_margin{{ section.id }}{
-                  margin-top: {{ block.settings.h6_custom_gap }}rem!important;
-                }
 
-                 /* Mobile Styles */
-                @media (max-width: 768px) {
-      .custom-h1-font-size{{ section.id }} {
-      font-size: {{ block.settings.h1_custom_font_size_mobile }}rem !important;
-      margin-bottom: {{ block.settings.h1_custom_gap_mobile }}rem!important;
-      }
-      .custom-h6-font-size{{ section.id }} {
-      font-size: {{ block.settings.h6_custom_font_size_mobile }}rem !important;
-    }
-    .button_top_margin{{ section.id }}{
-      margin-top: {{ block.settings.h6_custom_gap_mobile }}rem!important;
-    }
-  }
-
-  .custom-h6-font-size.upper{{ section.id }} {
-  font-size: {{ block.settings.upper_subheading_font_size }}rem !important;
-  margin-bottom: {{ block.settings.upper_subheading_gap }}rem !important;
-}
-
-@media (max-width: 768px) {
-  .custom-h6-font-size.upper{{ section.id }} {
-    font-size: {{ block.settings.upper_subheading_font_size_mobile }}rem !important;
-    margin-bottom: {{ block.settings.upper_subheading_gap_mobile }}rem !important;
-  }
-}
-  </style>
 
                 {%- if block.settings.upper_subheading != blank -%}
                   <p class="{% if block.settings.upper_subheading_custom_font %} h6 custom-h6-font-size upper{{ section.id }} {% else %} h6 {% endif %}">
