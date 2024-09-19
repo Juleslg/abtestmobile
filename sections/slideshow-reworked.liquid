@@ -25,7 +25,6 @@ may have important consequences on the section itself.
         <div class="content-over-media content-over-media--{{ section.settings.media_size }}" style="--content-over-media-content-max-width: {{ block.settings.content_max_width }}px;">
           {%- comment -%}---------------- MEDIA ----------------{%- endcomment -%}
           {%- if block.type == 'image' -%}
-            {%- comment -%} Output both mobile and desktop images {%- endcomment -%}
             <picture>
               {%- if block.settings.mobile_image != blank -%}
                 <source
@@ -40,8 +39,6 @@ may have important consequences on the section itself.
                   srcset="{{ block.settings.image | image_url: width: '800x' }} 800w, {{ block.settings.image | image_url: width: '1000x' }} 1000w, {{ block.settings.image | image_url: width: '1200x' }} 1200w, {{ block.settings.image | image_url: width: '1400x' }} 1400w, {{ block.settings.image | image_url: width: '1600x' }} 1600w, {{ block.settings.image | image_url: width: '1800x' }} 1800w, {{ block.settings.image | image_url: width: '2000x' }} 2000w"
                   sizes="100vw"
                 >
-              {%- endif -%}
-              {%- if block.settings.image != blank -%}
                 <img
                   src="{{ block.settings.image | image_url: width: '2000x' }}"
                   alt="{{ block.settings.image.alt | escape }}"
@@ -110,7 +107,15 @@ may have important consequences on the section itself.
               {%- endif -%}
 
               {%- if block.settings.mobile_button_1_text != blank or block.settings.mobile_button_2_text != blank -%}
-                <div class="button-group">
+                {%- assign button_mobile_position = block.settings.mobile_text_position | split: 'text-' | last -%}
+
+                {%- if block.settings.mobile_button_1_style == 'link' or block.settings.mobile_button_2_style == 'link' or block.settings.mobile_button_1_text == blank or block.settings.mobile_button_2_text == blank -%}
+                  {%- capture button_wrapper_class -%}button-group justify-{{ button_mobile_position }}{%- endcapture -%}
+                {%- else -%}
+                  {%- capture button_wrapper_class -%}button-group button-group--same-width justify-{{ button_mobile_position }}{%- endcapture -%}
+                {%- endif -%}
+
+                <div class="{{ button_wrapper_class }}">
                   {%- if block.settings.mobile_button_1_text != blank -%}
                     {% render 'button', href: block.settings.mobile_button_1_link, content: block.settings.mobile_button_1_text, style: block.settings.mobile_button_1_style, background: block.settings.mobile_button_1_background, text_color: block.settings.mobile_button_1_text_color %}
                   {%- endif -%}
@@ -137,7 +142,15 @@ may have important consequences on the section itself.
               {%- endif -%}
 
               {%- if block.settings.button_1_text != blank or block.settings.button_2_text != blank -%}
-                <div class="button-group">
+                {%- assign button_desktop_position = block.settings.desktop_text_position | split: 'sm:text-' | last -%}
+
+                {%- if block.settings.button_1_style == 'link' or block.settings.button_2_style == 'link' or block.settings.button_1_text == blank or block.settings.button_2_text == blank -%}
+                  {%- capture button_wrapper_class -%}button-group justify-{{ button_desktop_position }}{%- endcapture -%}
+                {%- else -%}
+                  {%- capture button_wrapper_class -%}button-group button-group--same-width justify-{{ button_desktop_position }}{%- endcapture -%}
+                {%- endif -%}
+
+                <div class="{{ button_wrapper_class }}">
                   {%- if block.settings.button_1_text != blank -%}
                     {% render 'button', href: block.settings.button_1_link, content: block.settings.button_1_text, style: block.settings.button_1_style, background: block.settings.button_1_background, text_color: block.settings.button_1_text_color %}
                   {%- endif -%}
