@@ -17,7 +17,7 @@
           "settings": {
             "upper_subheading_size": 16,
             "upper_subheading_weight": 400,
-            "title_size": 48,
+            "title_size": 52,
             "title_weight": 700,
             "subheading_size": 16,
             "subheading_weight": 400,
@@ -51,7 +51,7 @@
           "settings": {
             "upper_subheading_size": 16,
             "upper_subheading_weight": 400,
-            "title_size": 69,
+            "title_size": 54,
             "title_weight": 1000,
             "subheading_size": 22,
             "subheading_weight": 0,
@@ -79,16 +79,51 @@
             "border_color": "",
             "gradient_overlay": "radial-gradient(rgba(255, 255, 255, 0), rgba(4, 4, 4, 0.65) 100%)"
           }
+        },
+        "image_6yRrL6": {
+          "type": "image",
+          "settings": {
+            "upper_subheading_size": 16,
+            "upper_subheading_weight": 400,
+            "title_size": 48,
+            "title_weight": 700,
+            "subheading_size": 16,
+            "subheading_weight": 400,
+            "image": "shopify:\/\/shop_images\/mix_match_0831f4d0-ba41-45d6-813b-967d9818b33e.gif",
+            "mobile_image": "shopify:\/\/shop_images\/fruhstuck-set-mix-pdp.gif",
+            "subheading": "Create your own set",
+            "upper_subheading": "",
+            "title": "MIX & MATCH",
+            "mobile_text_position": "place-self-end-center text-center",
+            "desktop_text_position": "sm:place-self-end-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "EXPLORE",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffc6f8",
+            "button_1_text_color": "#354481",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "solid",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#ffffff",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#f29ce8",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+          }
         }
       },
       "block_order": [
         "image_VMrPFc",
-        "image_M6x7dB"
+        "image_M6x7dB",
+        "image_6yRrL6"
       ],
       "settings": {
         "allow_transparent_header": true,
         "show_next_section_button": true,
-        "media_size": "auto",
+        "media_size": "md",
         "autoplay": false,
         "autoplay_pause_on_video": true,
         "cycle_speed": 5,
