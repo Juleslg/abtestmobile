@@ -91,9 +91,9 @@ may have important consequences on the section itself.
             {%- assign is_boxed = true -%}
           {%- endif -%}
 
-          <div class="slideshow__slide-content {% if is_boxed %}slideshow__slide-content--boxed{% endif %} {% if has_border %}slideshow__slide-content--with-border{% endif %} {% if has_inside_offset %}slideshow__slide-content--with-border-offset{% endif %} {{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }}" style="{% render 'surface', background: block.settings.background, background_opacity: 0, text_color: block.settings.text_color, border_color: block.settings.border_color %}">
+          <div class="slideshow__slide-content {% if is_boxed %}slideshow__slide-content--boxed{% endif %} {% if has_border %}slideshow__slide-content--with-border{% endif %} {% if has_inside_offset %}slideshow__slide-content--with-border-offset{% endif %} {{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }}" style="{% render 'surface', background: block.settings.background, background_opacity: 0, border_color: block.settings.border_color %}">
             {%- comment -%} Mobile Content {%- endcomment -%}
-            <div class="prose mobile-content">
+            <div class="prose mobile-content" style="color: {{ block.settings.mobile_text_color }};">
               {%- if block.settings.mobile_upper_subheading != blank -%}
                 <p class="h6" style="font-size: {{ block.settings.mobile_upper_subheading_size }}px; font-weight: {{ block.settings.mobile_upper_subheading_weight }};">{{ block.settings.mobile_upper_subheading }}</p>
               {%- endif -%}
@@ -128,7 +128,7 @@ may have important consequences on the section itself.
             </div>
 
             {%- comment -%} Desktop Content {%- endcomment -%}
-            <div class="prose desktop-content">
+            <div class="prose desktop-content" style="color: {{ block.settings.desktop_text_color }};">
               {%- if block.settings.upper_subheading != blank -%}
                 <p class="h6" style="font-size: {{ block.settings.upper_subheading_size }}px; font-weight: {{ block.settings.upper_subheading_weight }};">{{ block.settings.upper_subheading }}</p>
               {%- endif -%}
@@ -208,7 +208,7 @@ may have important consequences on the section itself.
     {%- endif -%}
 
     {%- if section.settings.show_next_section_button -%}
-      <button data-action="navigate-next" class="slideshow__next-section-button circle-button circle-button--lg hover:animate-icon-block">
+      <button data-action="navigate-next" class="slideshow__next_section_button circle-button circle-button--lg hover:animate-icon-block">
         <span class="sr-only">{{ 'general.accessibility.navigate_to_next_section' | t }}</span>
         {% render 'icon' with 'arrow-down' %}
       </button>
@@ -807,12 +807,32 @@ may have important consequences on the section itself.
           },
           {
             "type": "header",
-            "content": "t:global.colors.category"
+            "content": "Mobile Colors"
+          },
+          {
+            "type": "color",
+            "id": "mobile_text_color",
+            "label": "Mobile Text Color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "header",
+            "content": "Desktop Colors"
+          },
+          {
+            "type": "color",
+            "id": "desktop_text_color",
+            "label": "Desktop Text Color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "header",
+            "content": "Background and Border"
           },
           {
             "type": "color",
             "id": "background",
-            "label": "t:global.colors.background"
+            "label": "Background Color"
           },
           {
             "type": "range",
@@ -820,24 +840,18 @@ may have important consequences on the section itself.
             "min": 0,
             "max": 100,
             "unit": "%",
-            "label": "t:global.colors.background_opacity",
+            "label": "Background Opacity",
             "default": 50
           },
           {
             "type": "color",
-            "id": "text_color",
-            "label": "t:global.colors.text",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
             "id": "border_color",
-            "label": "t:global.colors.border"
+            "label": "Border Color"
           },
           {
             "type": "color_background",
             "id": "gradient_overlay",
-            "label": "t:global.colors.gradient_overlay",
+            "label": "Gradient Overlay",
             "default": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)",
             "info": "t:sections.slideshow.blocks.image.gradient_overlay_info"
           }
@@ -1299,12 +1313,32 @@ may have important consequences on the section itself.
           },
           {
             "type": "header",
-            "content": "t:global.colors.category"
+            "content": "Mobile Colors"
+          },
+          {
+            "type": "color",
+            "id": "mobile_text_color",
+            "label": "Mobile Text Color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "header",
+            "content": "Desktop Colors"
+          },
+          {
+            "type": "color",
+            "id": "desktop_text_color",
+            "label": "Desktop Text Color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "header",
+            "content": "Background and Border"
           },
           {
             "type": "color",
             "id": "background",
-            "label": "t:global.colors.background"
+            "label": "Background Color"
           },
           {
             "type": "range",
@@ -1312,24 +1346,18 @@ may have important consequences on the section itself.
             "min": 0,
             "max": 100,
             "unit": "%",
-            "label": "t:global.colors.background_opacity",
+            "label": "Background Opacity",
             "default": 50
           },
           {
             "type": "color",
-            "id": "text_color",
-            "label": "t:global.colors.text",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
             "id": "border_color",
-            "label": "t:global.colors.border"
+            "label": "Border Color"
           },
           {
             "type": "color_background",
             "id": "gradient_overlay",
-            "label": "t:global.colors.gradient_overlay",
+            "label": "Gradient Overlay",
             "default": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)",
             "info": "t:sections.slideshow.blocks.image.gradient_overlay_info"
           }
@@ -1357,3 +1385,4 @@ may have important consequences on the section itself.
     ]
   }
   {% endschema %}
+  
