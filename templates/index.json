@@ -237,7 +237,7 @@
       ],
       "settings": {
         "allow_transparent_header": true,
-        "show_next_section_button": true,
+        "show_next_section_button": false,
         "media_size": "md",
         "autoplay": false,
         "autoplay_pause_on_video": true,
@@ -286,69 +286,6 @@
         "text_color": "#ffffff",
         "overlay_color": "#000000",
         "overlay_opacity": 0
-      }
-    },
-    "featured_collections_ADFPUj": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_EmtgbW": {
-          "type": "collection",
-          "settings": {
-            "collection": "bestseller",
-            "products_count": 8,
-            "title": "",
-            "link_url": "",
-            "link_text": "View all"
-          }
-        }
-      },
-      "block_order": [
-        "collection_EmtgbW"
-      ],
-      "custom_css": [
-        ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
-      ],
-      "settings": {
-        "separate_section_with_border": false,
-        "hide_product_information": false,
-        "stack_products": false,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "horizontal_spacing_factor": 1,
-        "vertical_spacing_factor": 1,
-        "subheading": ""
-      }
-    },
-    "featured_collections_nb8qqE": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_EFRpBC": {
-          "type": "collection",
-          "settings": {
-            "collection": "neu-im-sortiment",
-            "products_count": 8,
-            "title": "Neu im Sortiment",
-            "link_url": "",
-            "link_text": "View all"
-          }
-        }
-      },
-      "block_order": [
-        "collection_EFRpBC"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
-      ],
-      "settings": {
-        "separate_section_with_border": false,
-        "hide_product_information": false,
-        "stack_products": false,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "horizontal_spacing_factor": 1,
-        "vertical_spacing_factor": 1,
-        "subheading": ""
       }
     },
     "31e54c15-9859-4992-a081-b05d4f8bca2f": {
@@ -460,6 +397,69 @@
         "text_color": "#ffffff",
         "overlay_color": "#000000",
         "overlay_opacity": 0
+      }
+    },
+    "featured_collections_ADFPUj": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_EmtgbW": {
+          "type": "collection",
+          "settings": {
+            "collection": "bestseller",
+            "products_count": 8,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        }
+      },
+      "block_order": [
+        "collection_EmtgbW"
+      ],
+      "custom_css": [
+        ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "hide_product_information": false,
+        "stack_products": false,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": ""
+      }
+    },
+    "featured_collections_nb8qqE": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_EFRpBC": {
+          "type": "collection",
+          "settings": {
+            "collection": "neu-im-sortiment",
+            "products_count": 8,
+            "title": "Neu im Sortiment",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        }
+      },
+      "block_order": [
+        "collection_EFRpBC"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "hide_product_information": false,
+        "stack_products": false,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": ""
       }
     },
     "testimonials2_0_xAMyc7": {
