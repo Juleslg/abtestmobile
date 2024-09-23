@@ -21,7 +21,7 @@
             "mobile_title": "MIX & MATCH",
             "mobile_title_size": 59,
             "mobile_title_weight": 700,
-            "mobile_subheading": "Build your own set",
+            "mobile_subheading": "Hier Set erstellen",
             "mobile_subheading_size": 16,
             "mobile_subheading_weight": 400,
             "upper_subheading": "",
@@ -30,11 +30,11 @@
             "title": "MIX & MATCH",
             "title_size": 100,
             "title_weight": 700,
-            "subheading": "Create your own set",
+            "subheading": "Hier Set erstellen",
             "subheading_size": 29,
             "subheading_weight": 400,
-            "image": "shopify:\/\/shop_images\/teller-set-mix-pdp.gif",
-            "mobile_image": "shopify:\/\/shop_images\/fruhstuck-set-mix-pdp.gif",
+            "image": "shopify://shop_images/teller-set-mix-pdp.gif",
+            "mobile_image": "shopify://shop_images/fruhstuck-set-mix-pdp.gif",
             "mobile_text_position": "place-self-end-center text-center",
             "desktop_text_position": "sm:place-self-end-center sm:text-center",
             "content_max_width": 780,
@@ -87,8 +87,8 @@
             "subheading": "",
             "subheading_size": 16,
             "subheading_weight": 400,
-            "image": "shopify:\/\/shop_images\/teller-back.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/2023-06-22_Onomao23859_72c72804-8664-4066-ae5f-0ed12eeb9081.jpg",
+            "image": "shopify://shop_images/teller-back.jpg",
+            "mobile_image": "shopify://shop_images/2023-06-22_Onomao23859_72c72804-8664-4066-ae5f-0ed12eeb9081.jpg",
             "mobile_text_position": "place-self-center-start text-start",
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "content_max_width": 780,
@@ -135,14 +135,14 @@
             "upper_subheading": "",
             "upper_subheading_size": 16,
             "upper_subheading_weight": 400,
-            "title": "<strong>OUR BECHER<\/strong>",
+            "title": "<strong>OUR BECHER</strong>",
             "title_size": 54,
             "title_weight": 1000,
             "subheading": "The one and only",
             "subheading_size": 22,
             "subheading_weight": 0,
-            "image": "shopify:\/\/shop_images\/2023-03-27_Onomao25438_e83a574c-b051-4c1f-90eb-490df4373a40.png",
-            "mobile_image": "shopify:\/\/shop_images\/2023-03-27_Onomao25438_a9d15246-012b-421f-9d3e-fbea5a1b91db.jpg",
+            "image": "shopify://shop_images/2023-03-27_Onomao25438_e83a574c-b051-4c1f-90eb-490df4373a40.png",
+            "mobile_image": "shopify://shop_images/2023-03-27_Onomao25438_a9d15246-012b-421f-9d3e-fbea5a1b91db.jpg",
             "mobile_text_position": "place-self-center-start text-start",
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "content_max_width": 720,
@@ -195,8 +195,8 @@
             "subheading": "Tell your fantastic story",
             "subheading_size": 16,
             "subheading_weight": 400,
-            "image": "shopify:\/\/shop_images\/2024-07-03_Onomao10633_1_3a66e925-ab50-4c0d-864e-635b786ce87a.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/C-01-TRAD-BSAUC-SET-BLUE-001-01-web.jpg",
+            "image": "shopify://shop_images/2024-07-03_Onomao10633_1_3a66e925-ab50-4c0d-864e-635b786ce87a.jpg",
+            "mobile_image": "shopify://shop_images/C-01-TRAD-BSAUC-SET-BLUE-001-01-web.jpg",
             "mobile_text_position": "place-self-center-start text-start",
             "desktop_text_position": "sm:place-self-center sm:text-center",
             "content_max_width": 780,
@@ -275,8 +275,8 @@
       "disabled": true,
       "settings": {
         "image_size": "fill",
-        "image": "shopify:\/\/shop_images\/Head_webseite_SummerSALE_29ecff15-1a26-4c01-95dd-16051638a6bd.jpg",
-        "link_url": "shopify:\/\/collections\/geschirr",
+        "image": "shopify://shop_images/Head_webseite_SummerSALE_29ecff15-1a26-4c01-95dd-16051638a6bd.jpg",
+        "link_url": "shopify://collections/geschirr",
         "allow_transparent_header": false,
         "reveal_on_scroll": true,
         "remove_vertical_spacing": true,
@@ -358,8 +358,8 @@
         "template--18059233919244__31e54c15-9859-4992-a081-b05d4f8bca2f-image-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2023-08-30_Onomao3775.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/2023-08-30_Onomao3798.jpg",
+            "image": "shopify://shop_images/2023-08-30_Onomao3775.jpg",
+            "mobile_image": "shopify://shop_images/2023-08-30_Onomao3798.jpg",
             "subheading": "Zeitloses Geschirr in 11 Farben",
             "upper_subheading": "New arrival",
             "upper_subheading_custom_font": false,
@@ -382,7 +382,7 @@
             "desktop_text_position": "sm:place-self-start-end sm:text-end",
             "content_max_width": 800,
             "button_1_text": "zu unserer ersten Kollektion",
-            "button_1_link": "shopify:\/\/collections\/traditionell",
+            "button_1_link": "shopify://collections/traditionell",
             "button_1_style": "outline",
             "button_1_background": "#ffffff",
             "button_1_text_color": "#000000",
@@ -449,9 +449,9 @@
       ],
       "settings": {
         "image_size": "fill",
-        "image": "shopify:\/\/shop_images\/2023-08-30_Onomao3775_2_3fd0be04-7038-45fc-ab26-be42d01b4186.jpg",
-        "link_url": "shopify:\/\/collections\/traditionell",
-        "mobile_image": "shopify:\/\/shop_images\/2023-08-30_Onomao3798_1_35b35193-fcac-4e22-961b-899575dc12b5.jpg",
+        "image": "shopify://shop_images/2023-08-30_Onomao3775_2_3fd0be04-7038-45fc-ab26-be42d01b4186.jpg",
+        "link_url": "shopify://collections/traditionell",
+        "mobile_image": "shopify://shop_images/2023-08-30_Onomao3798_1_35b35193-fcac-4e22-961b-899575dc12b5.jpg",
         "allow_transparent_header": false,
         "reveal_on_scroll": true,
         "remove_vertical_spacing": true,
@@ -469,8 +469,8 @@
         "testimonial_BakjtH": {
           "type": "testimonial",
           "settings": {
-            "content": "<p>„Zwei Brüder eine Leidenschaft: Die Kunst der<br\/>Keramik. (...) Fairer Handel und Nachhaltigkeit sind Grundvorraussetzungen für das Unternehmen mit Sitz in Köln, wo die Brüder heute leben.“ - <em>Architectural Digest<\/em><\/p>",
-            "image": "shopify:\/\/shop_images\/logo-ad-us.svg",
+            "content": "<p>„Zwei Brüder eine Leidenschaft: Die Kunst der<br/>Keramik. (...) Fairer Handel und Nachhaltigkeit sind Grundvorraussetzungen für das Unternehmen mit Sitz in Köln, wo die Brüder heute leben.“ - <em>Architectural Digest</em></p>",
+            "image": "shopify://shop_images/logo-ad-us.svg",
             "logo_max_width": 70,
             "logo_mobile_max_width": 60,
             "author": ""
@@ -479,8 +479,8 @@
         "testimonial_UfA8ce": {
           "type": "testimonial",
           "settings": {
-            "content": "<p>\"Zu kaufen gibt es die wunderschönen Becher, Teller, Schüsseln, Karaffen und Vasen der Brüder in ihrem Laden in Köln-Ehrenfeld und im Onlineshop.\"- <em>Schöner Wohnen<\/em><\/p>",
-            "image": "shopify:\/\/shop_images\/Schoener_Wohnen_Logo_04_2023_svg.png",
+            "content": "<p>\"Zu kaufen gibt es die wunderschönen Becher, Teller, Schüsseln, Karaffen und Vasen der Brüder in ihrem Laden in Köln-Ehrenfeld und im Onlineshop.\"- <em>Schöner Wohnen</em></p>",
+            "image": "shopify://shop_images/Schoener_Wohnen_Logo_04_2023_svg.png",
             "logo_max_width": 75,
             "logo_mobile_max_width": 60,
             "author": ""
@@ -489,8 +489,8 @@
         "testimonial_DiVVMc": {
           "type": "testimonial",
           "settings": {
-            "content": "<p>„Bom dia, flüstern diese handgefertigen Becher jeden Morgen, denn sie sind echte Portugiesen, die Warme-Meeresluft-Feeling in den Alltag wehen.“ - <em>Emotion SLOW<\/em><\/p>",
-            "image": "shopify:\/\/shop_images\/logo.svg",
+            "content": "<p>„Bom dia, flüstern diese handgefertigen Becher jeden Morgen, denn sie sind echte Portugiesen, die Warme-Meeresluft-Feeling in den Alltag wehen.“ - <em>Emotion SLOW</em></p>",
+            "image": "shopify://shop_images/logo.svg",
             "logo_max_width": 75,
             "logo_mobile_max_width": 60,
             "author": ""
@@ -499,8 +499,8 @@
         "testimonial_ym4M7g": {
           "type": "testimonial",
           "settings": {
-            "content": "<p>„Das gefällt uns besonders: wie modern das Label der Brüder Arthur und Felix Wystrychowski traditionelles Handwerk aussehen lässt. Und wie toll sich die einzelnen Stücke kombinieren lassen.“ - <em>freundin<\/em><\/p>",
-            "image": "shopify:\/\/shop_images\/630px-Freundin-Logo_svg.png",
+            "content": "<p>„Das gefällt uns besonders: wie modern das Label der Brüder Arthur und Felix Wystrychowski traditionelles Handwerk aussehen lässt. Und wie toll sich die einzelnen Stücke kombinieren lassen.“ - <em>freundin</em></p>",
+            "image": "shopify://shop_images/630px-Freundin-Logo_svg.png",
             "logo_max_width": 75,
             "logo_mobile_max_width": 60,
             "author": ""
@@ -509,8 +509,8 @@
         "testimonial_Vp6Gbk": {
           "type": "testimonial",
           "settings": {
-            "content": "<p>„Auf der Suche nach Fundstücken kann man hin und wieder verzweifeln. Manchmal macht man aber auch einen Glücksfund und möchte am liebsten gleich den ganzen Online-Shop leer kaufen. Und genau ein solches Kleinod ist onomao.“ - <em>L’OfficielGermany<\/em><\/p>",
-            "image": "shopify:\/\/shop_images\/Lofficiel_logo_svg.png",
+            "content": "<p>„Auf der Suche nach Fundstücken kann man hin und wieder verzweifeln. Manchmal macht man aber auch einen Glücksfund und möchte am liebsten gleich den ganzen Online-Shop leer kaufen. Und genau ein solches Kleinod ist onomao.“ - <em>L’OfficielGermany</em></p>",
+            "image": "shopify://shop_images/Lofficiel_logo_svg.png",
             "logo_max_width": 80,
             "logo_mobile_max_width": 60,
             "author": ""
@@ -546,7 +546,7 @@
           "type": "collection",
           "settings": {
             "collection": "becher-tassen",
-            "image": "shopify:\/\/shop_images\/02-BECHER-TURQ-003-02_9d3bafb9-d4d7-4148-851c-49e6022b89ba.gif",
+            "image": "shopify://shop_images/02-BECHER-TURQ-003-02_9d3bafb9-d4d7-4148-851c-49e6022b89ba.gif",
             "expand_collection": false,
             "content_position": "place-self-end-center text-center",
             "subheading": "",
@@ -565,7 +565,7 @@
           "type": "collection",
           "settings": {
             "collection": "geschirrsets",
-            "image": "shopify:\/\/shop_images\/40-FRUeH-SET-MWHITE-004-02_1500x1200web_cecac687-5f85-4a01-9b3c-4af82927bde3.jpg",
+            "image": "shopify://shop_images/40-FRUeH-SET-MWHITE-004-02_1500x1200web_cecac687-5f85-4a01-9b3c-4af82927bde3.jpg",
             "expand_collection": false,
             "content_position": "place-self-end-center text-center",
             "subheading": "",
@@ -584,7 +584,7 @@
           "type": "collection",
           "settings": {
             "collection": "wohnaccessoires",
-            "image": "shopify:\/\/shop_images\/43-VASE-BOLINHA-JADE-003-02_70c874ce-ded0-41d2-be3a-a9a83c9a860e.gif",
+            "image": "shopify://shop_images/43-VASE-BOLINHA-JADE-003-02_70c874ce-ded0-41d2-be3a-a9a83c9a860e.gif",
             "expand_collection": true,
             "content_position": "place-self-end-center text-center",
             "subheading": "",
@@ -627,8 +627,8 @@
         "template--18059233919244__64ff7968-5fb2-4559-8431-18c3899971b0-image-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2021-08-31_Onomao4325.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/2021-08-31_Onomao4334_05fa2089-366c-4f20-a7ab-e8cbc2c6a0cd.jpg",
+            "image": "shopify://shop_images/2021-08-31_Onomao4325.jpg",
+            "mobile_image": "shopify://shop_images/2021-08-31_Onomao4334_05fa2089-366c-4f20-a7ab-e8cbc2c6a0cd.jpg",
             "subheading": "und entdecke wie onomao-Keramik entsteht",
             "upper_subheading": "New arrival",
             "upper_subheading_custom_font": false,
@@ -651,7 +651,7 @@
             "desktop_text_position": "sm:place-self-end sm:text-end",
             "content_max_width": 780,
             "button_1_text": "zu den Manufakturen",
-            "button_1_link": "shopify:\/\/pages\/produzent-innen",
+            "button_1_link": "shopify://pages/produzent-innen",
             "button_1_style": "outline",
             "button_1_background": "#ffffff",
             "button_1_text_color": "#000000",
@@ -718,9 +718,9 @@
       ],
       "settings": {
         "image_size": "fill",
-        "image": "shopify:\/\/shop_images\/2021-08-31_Onomao4325_1.jpg",
-        "link_url": "shopify:\/\/pages\/produzent-innen",
-        "mobile_image": "shopify:\/\/shop_images\/2021-08-31_Onomao4334_cbdb326e-4b21-4cf1-b6cd-b801cb367595.jpg",
+        "image": "shopify://shop_images/2021-08-31_Onomao4325_1.jpg",
+        "link_url": "shopify://pages/produzent-innen",
+        "mobile_image": "shopify://shop_images/2021-08-31_Onomao4334_cbdb326e-4b21-4cf1-b6cd-b801cb367595.jpg",
         "allow_transparent_header": false,
         "reveal_on_scroll": true,
         "remove_vertical_spacing": true,
@@ -739,7 +739,7 @@
           "type": "collection",
           "settings": {
             "collection": "karaffen",
-            "image": "shopify:\/\/shop_images\/42-MKARAFFE-TEAL-001-01_1500x1200web.jpg",
+            "image": "shopify://shop_images/42-MKARAFFE-TEAL-001-01_1500x1200web.jpg",
             "expand_collection": false,
             "content_position": "place-self-end-center text-center",
             "subheading": "",
@@ -758,7 +758,7 @@
           "type": "collection",
           "settings": {
             "collection": "teller",
-            "image": "shopify:\/\/shop_images\/Teller_d95095b4-ddde-4fa4-8e72-2055c717ef09.gif",
+            "image": "shopify://shop_images/Teller_d95095b4-ddde-4fa4-8e72-2055c717ef09.gif",
             "expand_collection": false,
             "content_position": "place-self-end-center text-center",
             "subheading": "",
@@ -777,7 +777,7 @@
           "type": "collection",
           "settings": {
             "collection": "schuesseln-schalen",
-            "image": "shopify:\/\/shop_images\/20-DIP-BLUE-002-02_1500x1200web_0e1b6388-21a7-4f47-9f4a-15f022e97b96.jpg",
+            "image": "shopify://shop_images/20-DIP-BLUE-002-02_1500x1200web_0e1b6388-21a7-4f47-9f4a-15f022e97b96.jpg",
             "expand_collection": false,
             "content_position": "place-self-end-center text-center",
             "subheading": "",
@@ -828,7 +828,7 @@
           "type": "richtext",
           "disabled": true,
           "settings": {
-            "content": "<p>Use video to showcase product features or to create a unique atmosphere on your store.<\/p>"
+            "content": "<p>Use video to showcase product features or to create a unique atmosphere on your store.</p>"
           }
         }
       },
@@ -845,7 +845,7 @@
         "text_position_left": 42,
         "text_position_right": 78,
         "video_size": "sm",
-        "video": "shopify:\/\/files\/videos\/Imagefilm_gekürzt_komprimiert_min 2.03 – 2.38 V2.mp4",
+        "video": "shopify://files/videos/Imagefilm_gekürzt_komprimiert_min 2.03 – 2.38 V2.mp4",
         "external_video_url": "",
         "text_color": "#ffffff"
       }
@@ -856,7 +856,7 @@
         "separate_section_with_border": false,
         "remove_vertical_spacing": true,
         "remove_horizontal_spacing": true,
-        "liquid": "<script>\n  window.addEventListener(\"klaviyoForms\", function(e) { \n    if (e.detail.type == 'open' || e.detail.type == 'embedOpen') {\n      gtag('event', 'form_open', {'form': 'Klaviyo form', 'form_id': e.detail.formId});\n    }\n    if (e.detail.type == 'submit') {\n      gtag('event', 'form_submit', {'form': 'Klaviyo form', 'form_id': e.detail.formId});\n    }\n    if (e.detail.type == 'stepSubmit') {\n      gtag('event', 'form_step_submit', {'form': 'Klaviyo form', 'step_name': e.detail.metaData.$step_name});\n    }\n    if (e.detail.type == 'redirectedToUrl') {\n      gtag('event', 'form_url_redirect', {'form': 'Klaviyo form', 'form_id': e.detail.formId});\n    }\n    if (e.detail.type == 'close') {\n      gtag('event', 'form_close', {'form': 'Klaviyo form', 'form_id': e.detail.formId});\n    }\n  });\n<\/script>",
+        "liquid": "<script>\n  window.addEventListener(\"klaviyoForms\", function(e) { \n    if (e.detail.type == 'open' || e.detail.type == 'embedOpen') {\n      gtag('event', 'form_open', {'form': 'Klaviyo form', 'form_id': e.detail.formId});\n    }\n    if (e.detail.type == 'submit') {\n      gtag('event', 'form_submit', {'form': 'Klaviyo form', 'form_id': e.detail.formId});\n    }\n    if (e.detail.type == 'stepSubmit') {\n      gtag('event', 'form_step_submit', {'form': 'Klaviyo form', 'step_name': e.detail.metaData.$step_name});\n    }\n    if (e.detail.type == 'redirectedToUrl') {\n      gtag('event', 'form_url_redirect', {'form': 'Klaviyo form', 'form_id': e.detail.formId});\n    }\n    if (e.detail.type == 'close') {\n      gtag('event', 'form_close', {'form': 'Klaviyo form', 'form_id': e.detail.formId});\n    }\n  });\n</script>",
         "text_alignment": "center"
       }
     },
@@ -869,7 +869,7 @@
         "separate_section_with_border": false,
         "remove_vertical_spacing": true,
         "remove_horizontal_spacing": false,
-        "liquid": "<!-- Desktop \/ DE -->\n<div class=\"klaviyo-form-Yw2AfX\"><\/div>\n<!-- Desktop \/ EN -->\n<div class=\"klaviyo-form-YhyyHQ\"><\/div>\n<!-- Desktop \/ FR -->\n<div class=\"klaviyo-form-Sag6XU\"><\/div>\n<!-- Mobile \/ DE -->\n<div class=\"klaviyo-form-SHf9TB\"><\/div>\n<!-- Mobile \/ EN -->\n<div class=\"klaviyo-form-XV3wZF\"><\/div>\n<!-- Mobile \/ FR -->\n<div class=\"klaviyo-form-YrT58L\"><\/div>",
+        "liquid": "<!-- Desktop / DE -->\n<div class=\"klaviyo-form-Yw2AfX\"></div>\n<!-- Desktop / EN -->\n<div class=\"klaviyo-form-YhyyHQ\"></div>\n<!-- Desktop / FR -->\n<div class=\"klaviyo-form-Sag6XU\"></div>\n<!-- Mobile / DE -->\n<div class=\"klaviyo-form-SHf9TB\"></div>\n<!-- Mobile / EN -->\n<div class=\"klaviyo-form-XV3wZF\"></div>\n<!-- Mobile / FR -->\n<div class=\"klaviyo-form-YrT58L\"></div>",
         "text_alignment": "center"
       }
     }
