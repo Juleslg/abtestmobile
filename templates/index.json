@@ -305,7 +305,6 @@
       "block_order": [
         "collection_EmtgbW"
       ],
-      "disabled": true,
       "custom_css": [
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
       ],
@@ -524,6 +523,7 @@
         "testimonial_ym4M7g",
         "testimonial_Vp6Gbk"
       ],
+      "disabled": true,
       "settings": {
         "section_spacing_padding_top": 84,
         "text_width": 44,
@@ -877,10 +877,10 @@
   "order": [
     "slideshow_reworked_kqn8dg",
     "image_overlay_link_y6HAxQ",
-    "featured_collections_ADFPUj",
-    "featured_collections_nb8qqE",
     "31e54c15-9859-4992-a081-b05d4f8bca2f",
     "image_overlay_link_LfRaEB",
+    "featured_collections_ADFPUj",
+    "featured_collections_nb8qqE",
     "testimonials2_0_xAMyc7",
     "18b98b8f-e4b1-46fb-9d00-051693765ff8",
     "64ff7968-5fb2-4559-8431-18c3899971b0",
