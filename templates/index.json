@@ -265,7 +265,8 @@
         "image_txpEGG": {
           "type": "image",
           "settings": {
-            "width_mode": "custom",
+            "image": "shopify://shop_images/Screenshot_2024-09-24_at_15.15.50.png",
+            "width_mode": "full_width",
             "max_width": 600,
             "mobile_max_width": 400
           }
