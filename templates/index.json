@@ -178,10 +178,10 @@
           "type": "image",
           "settings": {
             "mobile_upper_subheading": "New in !",
-            "mobile_upper_subheading_size": 16,
+            "mobile_upper_subheading_size": 15,
             "mobile_upper_subheading_weight": 400,
             "mobile_title": "Kleiner Becher und Untertasse",
-            "mobile_title_size": 45,
+            "mobile_title_size": 34,
             "mobile_title_weight": 700,
             "mobile_subheading": "",
             "mobile_subheading_size": 16,
