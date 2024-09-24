@@ -409,7 +409,7 @@
       ],
       "custom_css": [
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}",
-        ".justify-self-center {justify-self: left;}"
+        "@media only screen and (max-width: 768px) {.justify-self-center {justify-self: left;}}"
       ],
       "settings": {
         "separate_section_with_border": false,
