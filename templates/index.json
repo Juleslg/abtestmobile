@@ -390,55 +390,6 @@
         "controls_color": "#ffffff"
       }
     },
-    "image_overlay_link_LfRaEB": {
-      "type": "image_overlay_link",
-      "blocks": {
-        "heading_pnf7fH": {
-          "type": "heading",
-          "settings": {
-            "text": "TRADITIONELL",
-            "heading_tag": "h1"
-          }
-        },
-        "heading_ADGc3t": {
-          "type": "heading",
-          "settings": {
-            "text": "ZEITLOSES GESCHIRR IN 11 FARBEN",
-            "heading_tag": "h6"
-          }
-        },
-        "button_BaF3FG": {
-          "type": "button",
-          "settings": {
-            "style": "outline",
-            "text": "hier entdecken",
-            "url": "",
-            "background": "#ffffff",
-            "text_color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "heading_pnf7fH",
-        "heading_ADGc3t",
-        "button_BaF3FG"
-      ],
-      "settings": {
-        "image_size": "fill",
-        "image": "shopify://shop_images/2023-08-30_Onomao3775_2_3fd0be04-7038-45fc-ab26-be42d01b4186.jpg",
-        "link_url": "shopify://collections/traditionell",
-        "mobile_image": "shopify://shop_images/2023-08-30_Onomao3798_1_35b35193-fcac-4e22-961b-899575dc12b5.jpg",
-        "allow_transparent_header": false,
-        "reveal_on_scroll": true,
-        "remove_vertical_spacing": true,
-        "content_width": "md",
-        "mobile_text_position": "place-self-center text-center",
-        "desktop_text_position": "sm:place-self-start-end sm:text-end",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0
-      }
-    },
     "featured_collections_ADFPUj": {
       "type": "featured-collections",
       "blocks": {
@@ -500,6 +451,55 @@
         "horizontal_spacing_factor": 1,
         "vertical_spacing_factor": 1,
         "subheading": ""
+      }
+    },
+    "image_overlay_link_LfRaEB": {
+      "type": "image_overlay_link",
+      "blocks": {
+        "heading_pnf7fH": {
+          "type": "heading",
+          "settings": {
+            "text": "TRADITIONELL",
+            "heading_tag": "h1"
+          }
+        },
+        "heading_ADGc3t": {
+          "type": "heading",
+          "settings": {
+            "text": "ZEITLOSES GESCHIRR IN 11 FARBEN",
+            "heading_tag": "h6"
+          }
+        },
+        "button_BaF3FG": {
+          "type": "button",
+          "settings": {
+            "style": "outline",
+            "text": "hier entdecken",
+            "url": "",
+            "background": "#ffffff",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pnf7fH",
+        "heading_ADGc3t",
+        "button_BaF3FG"
+      ],
+      "settings": {
+        "image_size": "fill",
+        "image": "shopify://shop_images/2023-08-30_Onomao3775_2_3fd0be04-7038-45fc-ab26-be42d01b4186.jpg",
+        "link_url": "shopify://collections/traditionell",
+        "mobile_image": "shopify://shop_images/2023-08-30_Onomao3798_1_35b35193-fcac-4e22-961b-899575dc12b5.jpg",
+        "allow_transparent_header": false,
+        "reveal_on_scroll": true,
+        "remove_vertical_spacing": true,
+        "content_width": "md",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-start-end sm:text-end",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
       }
     },
     "testimonials2_0_xAMyc7": {
@@ -919,9 +919,9 @@
     "rich_text_PizcJ6",
     "image_overlay_link_y6HAxQ",
     "31e54c15-9859-4992-a081-b05d4f8bca2f",
-    "image_overlay_link_LfRaEB",
     "featured_collections_ADFPUj",
     "featured_collections_nb8qqE",
+    "image_overlay_link_LfRaEB",
     "testimonials2_0_xAMyc7",
     "18b98b8f-e4b1-46fb-9d00-051693765ff8",
     "64ff7968-5fb2-4559-8431-18c3899971b0",
