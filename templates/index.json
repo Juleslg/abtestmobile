@@ -246,6 +246,43 @@
         "controls_color": "#ffffff"
       }
     },
+    "rich_text_PizcJ6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nRwhtL": {
+          "type": "heading",
+          "settings": {
+            "text": "Design",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_RXxifB": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Jedes unserer Produkte ist einzigartig. Durch die Herstellung in Handarbeit variieren Form und Farbe bei jedem Stück. Das Design ist zeitlos und lässt sich vielseitig kombinieren.</p>"
+          }
+        },
+        "image_txpEGG": {
+          "type": "image",
+          "settings": {
+            "width_mode": "custom",
+            "max_width": 600,
+            "mobile_max_width": 400
+          }
+        }
+      },
+      "block_order": [
+        "heading_nRwhtL",
+        "richtext_RXxifB",
+        "image_txpEGG"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "content_width": "md",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
     "image_overlay_link_y6HAxQ": {
       "type": "image_overlay_link",
       "blocks": {
@@ -876,6 +913,7 @@
   },
   "order": [
     "slideshow_reworked_kqn8dg",
+    "rich_text_PizcJ6",
     "image_overlay_link_y6HAxQ",
     "31e54c15-9859-4992-a081-b05d4f8bca2f",
     "image_overlay_link_LfRaEB",
