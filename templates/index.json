@@ -581,6 +581,41 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
+    "scrolling_content_QaDDQa": {
+      "type": "scrolling-content",
+      "blocks": {
+        "text_FYTBNy": {
+          "type": "text",
+          "settings": {
+            "text": "Welcome to our shop"
+          }
+        },
+        "text_8L634f": {
+          "type": "text",
+          "settings": {
+            "text": "Discover our products"
+          }
+        }
+      },
+      "block_order": [
+        "text_FYTBNy",
+        "text_8L634f"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "scrolling_speed": 0.3,
+        "scroll_direction": "left",
+        "text_font": "heading",
+        "text_font_size_mobile": 40,
+        "text_font_size_desktop": 96,
+        "section_vertical_spacing_mobile": 60,
+        "section_vertical_spacing_desktop": 80,
+        "item_horizontal_spacing_mobile": 80,
+        "item_horizontal_spacing_desktop": 120,
+        "background": "",
+        "text_color": ""
+      }
+    },
     "18b98b8f-e4b1-46fb-9d00-051693765ff8": {
       "type": "collection-list",
       "blocks": {
@@ -744,6 +779,7 @@
         },
         "button_bnay7Q": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "style": "outline",
             "text": "zu den Manufakturen",
@@ -925,6 +961,7 @@
     "featured_collections_nb8qqE",
     "image_overlay_link_LfRaEB",
     "testimonials2_0_xAMyc7",
+    "scrolling_content_QaDDQa",
     "18b98b8f-e4b1-46fb-9d00-051693765ff8",
     "64ff7968-5fb2-4559-8431-18c3899971b0",
     "image_overlay_link_qw7dUX",
