@@ -595,7 +595,7 @@
         "text_FYTBNy"
       ],
       "custom_css": [
-        ".section-spacing {margin: unset;}"
+        ".section-spacing {margin: unset; padding-top: 20px; padding-bottom: 20px;}"
       ],
       "settings": {
         "separate_section_with_border": true,
