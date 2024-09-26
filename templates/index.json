@@ -596,7 +596,7 @@
       ],
       "settings": {
         "separate_section_with_border": true,
-        "scrolling_speed": 0.2,
+        "scrolling_speed": 0.1,
         "scroll_direction": "left",
         "text_font": "heading",
         "text_font_size_mobile": 24,
