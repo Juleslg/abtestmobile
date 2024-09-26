@@ -475,11 +475,11 @@
         "button_BaF3FG": {
           "type": "button",
           "settings": {
-            "style": "outline",
+            "style": "solid",
             "text": "hier entdecken",
             "url": "",
-            "background": "#ffffff",
-            "text_color": "#ffffff"
+            "background": "#efead4",
+            "text_color": "#030303"
           }
         }
       },
