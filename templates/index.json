@@ -262,11 +262,11 @@
             "content": "<p>Jedes unserer Produkte ist einzigartig. Durch die Herstellung in Handarbeit variieren Form und Farbe bei jedem Stück. Das Design ist zeitlos und lässt sich vielseitig kombinieren.</p>"
           }
         },
-        "image_txpEGG": {
+        "image_NJhQXd": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2024-09-24_at_16.06.50.png",
-            "width_mode": "full_width",
+            "image": "shopify://shop_images/Group_1_eab76d36-9541-4bab-b9b0-7629508ea4fb.png",
+            "width_mode": "custom",
             "max_width": 600,
             "mobile_max_width": 400
           }
@@ -275,7 +275,7 @@
       "block_order": [
         "heading_nRwhtL",
         "richtext_RXxifB",
-        "image_txpEGG"
+        "image_NJhQXd"
       ],
       "custom_css": [
 
