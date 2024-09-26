@@ -594,6 +594,9 @@
       "block_order": [
         "text_FYTBNy"
       ],
+      "custom_css": [
+        ".section-spacing {margin: unset;}"
+      ],
       "settings": {
         "separate_section_with_border": true,
         "scrolling_speed": 0.1,
