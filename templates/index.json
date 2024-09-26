@@ -587,19 +587,12 @@
         "text_FYTBNy": {
           "type": "text",
           "settings": {
-            "text": "Welcome to our shop"
-          }
-        },
-        "text_8L634f": {
-          "type": "text",
-          "settings": {
-            "text": "Discover our products"
+            "text": "Nachhaltigkeit ist für uns essenziell. Unsere Produkte werden in Portugal hergestellt. Wir verwenden ausschließlich natürliche oder recycelte Materialien und versenden Bestellungen CO2-frei. Unsere Emissionen gleichen wir durch Investitionen in Klimaschutzprojekte aus."
           }
         }
       },
       "block_order": [
-        "text_FYTBNy",
-        "text_8L634f"
+        "text_FYTBNy"
       ],
       "settings": {
         "separate_section_with_border": true,
