@@ -806,6 +806,37 @@
         "overlay_opacity": 15
       }
     },
+    "scrolling_content_RPwVEP": {
+      "type": "scrolling-content",
+      "blocks": {
+        "text_G6mdVx": {
+          "type": "text",
+          "settings": {
+            "text": "Nachhaltigkeit ist für uns essenziell. Unsere Produkte werden in Portugal hergestellt. Wir verwenden ausschließlich natürliche oder recycelte Materialien und versenden Bestellungen CO2-frei. Unsere Emissionen gleichen wir durch Investitionen in Klimaschutzprojekte aus."
+          }
+        }
+      },
+      "block_order": [
+        "text_G6mdVx"
+      ],
+      "custom_css": [
+        ".section-spacing {margin: unset; padding-top: 20px; padding-bottom: 20px;}"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "scrolling_speed": 0.1,
+        "scroll_direction": "left",
+        "text_font": "heading",
+        "text_font_size_mobile": 24,
+        "text_font_size_desktop": 96,
+        "section_vertical_spacing_mobile": 48,
+        "section_vertical_spacing_desktop": 80,
+        "item_horizontal_spacing_mobile": 80,
+        "item_horizontal_spacing_desktop": 120,
+        "background": "",
+        "text_color": ""
+      }
+    },
     "3919b115-cdfb-4526-b72b-a33cb1964273": {
       "type": "collection-list",
       "blocks": {
@@ -961,6 +992,7 @@
     "18b98b8f-e4b1-46fb-9d00-051693765ff8",
     "64ff7968-5fb2-4559-8431-18c3899971b0",
     "image_overlay_link_qw7dUX",
+    "scrolling_content_RPwVEP",
     "3919b115-cdfb-4526-b72b-a33cb1964273",
     "2eaa1e4e-42a8-44a9-859e-090b1b3489b2",
     "custom_liquid_dTEhzW",
