@@ -880,6 +880,7 @@
         },
         "template--18059233919244__3919b115-cdfb-4526-b72b-a33cb1964273-collection-3": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "schuesseln-schalen",
             "image": "shopify://shop_images/20-DIP-BLUE-002-02_1500x1200web_0e1b6388-21a7-4f47-9f4a-15f022e97b96.jpg",
