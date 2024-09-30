@@ -201,7 +201,7 @@
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "content_max_width": 720,
             "mobile_button_1_text": "Shop",
-            "mobile_button_1_link": "",
+            "mobile_button_1_link": "shopify://products/becher-traditionell",
             "mobile_button_1_style": "solid",
             "mobile_button_1_background": "#5d7c8b",
             "mobile_button_1_text_color": "#ffffff",
