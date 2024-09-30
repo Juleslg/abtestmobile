@@ -39,7 +39,7 @@
             "desktop_text_position": "sm:place-self-center sm:text-center",
             "content_max_width": 780,
             "mobile_button_1_text": "SHOP",
-            "mobile_button_1_link": "",
+            "mobile_button_1_link": "shopify://pages/mix-match",
             "mobile_button_1_style": "solid",
             "mobile_button_1_background": "#cb2b2b",
             "mobile_button_1_text_color": "#ffffff",
@@ -942,6 +942,7 @@
         "3f56c24e-ff3c-4c85-9fcb-a6e1e44903eb",
         "63ff4520-1f3e-439b-b3b0-7d147ebda959"
       ],
+      "disabled": true,
       "settings": {
         "autoplay": true,
         "show_controls": false,
