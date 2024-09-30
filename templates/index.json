@@ -147,7 +147,7 @@
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "content_max_width": 780,
             "mobile_button_1_text": "Shop",
-            "mobile_button_1_link": "",
+            "mobile_button_1_link": "shopify://products/grosser-teller-m-traditionell",
             "mobile_button_1_style": "solid",
             "mobile_button_1_background": "#fffcee",
             "mobile_button_1_text_color": "#0f1835",
