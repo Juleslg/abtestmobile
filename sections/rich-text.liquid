@@ -40,7 +40,7 @@
 
             {%- when 'image' -%}
               {%- if block.settings.image != blank -%}
-                <div {{ block.shopify_attributes }}>
+                <div class="image-container" {{ block.shopify_attributes }}>
                   {%- capture image_style_attribute -%}{% if section.settings.text_position == 'center' %}margin-inline: auto;{% elsif section.settings.text_position == 'end' %}margin-inline-start: auto;{% endif %}{%- endcapture -%}
 
                   {%- if block.settings.width_mode == 'custom' -%}
