@@ -278,7 +278,7 @@
         "image_NJhQXd"
       ],
       "custom_css": [
-        ".container:nth-child(3) > div {margin-top: 40px;}"
+        ".image-container {margin-top: 40px;}"
       ],
       "settings": {
         "separate_section_with_border": false,
