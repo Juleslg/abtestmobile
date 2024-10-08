@@ -239,7 +239,7 @@
         "allow_transparent_header": true,
         "show_next_section_button": false,
         "media_size": "md",
-        "autoplay": true,
+        "autoplay": false,
         "autoplay_pause_on_video": true,
         "cycle_speed": 4,
         "background": "#000000",
