@@ -363,7 +363,7 @@
         "media_size": "auto",
         "autoplay": true,
         "autoplay_pause_on_video": true,
-        "cycle_speed": 4,
+        "cycle_speed": 6,
         "background": "#000000",
         "controls_color": "#ffffff"
       }
