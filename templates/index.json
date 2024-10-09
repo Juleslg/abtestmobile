@@ -177,6 +177,7 @@
         },
         "image_VMrPFc": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_upper_subheading": "",
             "mobile_upper_subheading_size": 16,
