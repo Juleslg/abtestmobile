@@ -179,12 +179,23 @@ may have important consequences on the section itself.
         {%- endif -%}
       {%- endcapture -%}
 
-      {%- if block.settings.button_1_link != blank and block.settings.button_1_text == blank and block.settings.button_2_text == blank -%}
-        <a href="{{ block.settings.button_1_link }}" class="slideshow__slide {% if forloop.first %}is-selected{% endif %}" media-type="{{ block.type }}" {% if forloop.first %}reveal-on-scroll="true"{% endif %} role="group" {{ block.shopify_attributes }}>
+      {%- comment -%} Corrected slide_classes assignment {%- endcomment -%}
+      {%- assign slide_classes = "slideshow__slide" -%}
+      {%- if forloop.first -%}
+        {%- assign slide_classes = slide_classes | append: ' is-selected' -%}
+      {%- endif -%}
+
+      {%- assign slide_attributes = '' -%}
+      {%- if forloop.first -%}
+        {%- assign slide_attributes = slide_attributes | append: 'reveal-on-scroll="true" ' -%}
+      {%- endif -%}
+
+      {%- if block.settings.slide_clickable and block.settings.slide_link != blank -%}
+        <a href="{{ block.settings.slide_link }}" class="{{ slide_classes }}" media-type="{{ block.type }}" {{ slide_attributes }} role="group" {{ block.shopify_attributes }}>
           {{ slide }}
         </a>
       {%- else -%}
-        <div class="slideshow__slide {% if forloop.first %}is-selected{% endif %}" media-type="{{ block.type }}" {% if forloop.first %}reveal-on-scroll="true"{% endif %} role="group" {{ block.shopify_attributes }}>
+        <div class="{{ slide_classes }}" media-type="{{ block.type }}" {{ slide_attributes }} role="group" {{ block.shopify_attributes }}>
           {{ slide }}
         </div>
       {%- endif -%}
@@ -248,1142 +259,1175 @@ may have important consequences on the section itself.
     display: block;
   }
 }
-
-
 </style>
+
+
 
 
 
 {% schema %}
   {
-    "name": "slideshow_reworked",
-    "class": "shopify-section--slideshow",
-    "tag": "section",
-    "max_blocks": 6,
-    "disabled_on": {
-      "groups": ["header", "custom.overlay"]
+  "name": "slideshow_reworked",
+  "class": "shopify-section--slideshow",
+  "tag": "section",
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "t:global.section.allow_transparent_header",
+      "info": "t:global.section.allow_transparent_header_info",
+      "default": true
     },
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "allow_transparent_header",
-        "label": "t:global.section.allow_transparent_header",
-        "info": "t:global.section.allow_transparent_header_info",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_next_section_button",
-        "label": "t:sections.slideshow.show_next_section_button",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "media_size",
-        "label": "t:global.image.size",
-        "options": [
-          {
-            "value": "auto",
-            "label": "t:global.sizes.original_image_ratio"
-          },
-          {
-            "value": "xs",
-            "label": "t:global.sizes.x_small"
-          },
-          {
-            "value": "sm",
-            "label": "t:global.sizes.small"
-          },
-          {
-            "value": "md",
-            "label": "t:global.sizes.medium"
-          },
-          {
-            "value": "lg",
-            "label": "t:global.sizes.large"
-          },
-          {
-            "value": "fill",
-            "label": "t:global.sizes.fit_screen"
-          }
-        ],
-        "info": "t:global.image.ratio_avoid_cropping_info",
-        "default": "auto"
-      },
-      {
-        "type": "checkbox",
-        "id": "autoplay",
-        "label": "t:sections.slideshow.auto_rotate_between_slides",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "autoplay_pause_on_video",
-        "label": "t:sections.slideshow.autoplay_pause_on_video",
-        "default": true
-      },
-      {
-        "type": "range",
-        "id": "cycle_speed",
-        "min": 4,
-        "max": 20,
-        "step": 1,
-        "unit": "sec",
-        "label": "t:sections.slideshow.cycle_speed",
-        "default": 5
-      },
-      {
-        "type": "header",
-        "content": "t:global.colors.category"
-      },
-      {
-        "type": "color",
-        "id": "background",
-        "label": "t:sections.slideshow.background",
-        "info": "t:sections.slideshow.background_info",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "id": "controls_color",
-        "label": "t:sections.slideshow.controls_color",
-        "info": "t:sections.slideshow.controls_color_info",
-        "default": "#ffffff"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "image",
-        "name": "t:sections.slideshow.blocks.image.name",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Mobile Content Settings"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "mobile_upper_subheading",
-            "label": "Mobile Upper Subheading",
-            "default": "New arrival"
-          },
-          {
-            "type": "range",
-            "id": "mobile_upper_subheading_size",
-            "min": 12,
-            "max": 60,
-            "step": 1,
-            "unit": "px",
-            "label": "Mobile Upper Subheading Font Size",
-            "default": 16
-          },
-          {
-            "type": "number",
-            "id": "mobile_upper_subheading_weight",
-            "label": "Mobile Upper Subheading Font Weight",
-            "default": 400,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "mobile_title",
-            "label": "Mobile Title",
-            "default": "Image slide"
-          },
-          {
-            "type": "range",
-            "id": "mobile_title_size",
-            "min": 20,
-            "max": 100,
-            "step": 1,
-            "unit": "px",
-            "label": "Mobile Title Font Size",
-            "default": 48
-          },
-          {
-            "type": "number",
-            "id": "mobile_title_weight",
-            "label": "Mobile Title Font Weight",
-            "default": 700,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "mobile_subheading",
-            "label": "Mobile Subheading",
-            "default": "Tell your fantastic story"
-          },
-          {
-            "type": "range",
-            "id": "mobile_subheading_size",
-            "min": 12,
-            "max": 60,
-            "step": 1,
-            "unit": "px",
-            "label": "Mobile Subheading Font Size",
-            "default": 16
-          },
-          {
-            "type": "number",
-            "id": "mobile_subheading_weight",
-            "label": "Mobile Subheading Font Weight",
-            "default": 400,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Content Settings"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "upper_subheading",
-            "label": "Desktop Upper Subheading",
-            "default": "New arrival"
-          },
-          {
-            "type": "range",
-            "id": "upper_subheading_size",
-            "min": 12,
-            "max": 60,
-            "step": 1,
-            "unit": "px",
-            "label": "Desktop Upper Subheading Font Size",
-            "default": 16
-          },
-          {
-            "type": "number",
-            "id": "upper_subheading_weight",
-            "label": "Desktop Upper Subheading Font Weight",
-            "default": 400,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "title",
-            "label": "Desktop Title",
-            "default": "Image slide"
-          },
-          {
-            "type": "range",
-            "id": "title_size",
-            "min": 20,
-            "max": 100,
-            "step": 1,
-            "unit": "px",
-            "label": "Desktop Title Font Size",
-            "default": 48
-          },
-          {
-            "type": "number",
-            "id": "title_weight",
-            "label": "Desktop Title Font Weight",
-            "default": 700,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "subheading",
-            "label": "Desktop Subheading",
-            "default": "Tell your fantastic story"
-          },
-          {
-            "type": "range",
-            "id": "subheading_size",
-            "min": 12,
-            "max": 60,
-            "step": 1,
-            "unit": "px",
-            "label": "Desktop Subheading Font Size",
-            "default": 16
-          },
-          {
-            "type": "number",
-            "id": "subheading_weight",
-            "label": "Desktop Subheading Font Weight",
-            "default": 400,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "header",
-            "content": "Images"
-          },
-          {
-            "type": "image_picker",
-            "id": "image",
-            "info": "t:sections.slideshow.blocks.image.desktop_image_size_recommendation",
-            "label": "Desktop Image"
-          },
-          {
-            "type": "image_picker",
-            "id": "mobile_image",
-            "label": "Mobile Image",
-            "info": "t:sections.slideshow.blocks.image.mobile_image_size_recommendation"
-          },
-          {
-            "type": "header",
-            "content": "Content Position"
-          },
-          {
-            "type": "select",
-            "id": "mobile_text_position",
-            "label": "Mobile Content Position",
-            "options": [
-              {
-                "value": "place-self-start text-start",
-                "label": "Top Left"
-              },
-              {
-                "value": "place-self-start-center text-center",
-                "label": "Top Center"
-              },
-              {
-                "value": "place-self-start-end text-end",
-                "label": "Top Right"
-              },
-              {
-                "value": "place-self-center-start text-start",
-                "label": "Middle Left"
-              },
-              {
-                "value": "place-self-center text-center",
-                "label": "Middle Center"
-              },
-              {
-                "value": "place-self-center-end text-end",
-                "label": "Middle Right"
-              },
-              {
-                "value": "place-self-end-start text-start",
-                "label": "Bottom Left"
-              },
-              {
-                "value": "place-self-end-center text-center",
-                "label": "Bottom Center"
-              },
-              {
-                "value": "place-self-end text-end",
-                "label": "Bottom Right"
-              }
-            ],
-            "default": "place-self-center text-center"
-          },
-          {
-            "type": "select",
-            "id": "desktop_text_position",
-            "label": "Desktop Content Position",
-            "options": [
-              {
-                "value": "sm:place-self-start sm:text-start",
-                "label": "Top Left"
-              },
-              {
-                "value": "sm:place-self-start-center sm:text-center",
-                "label": "Top Center"
-              },
-              {
-                "value": "sm:place-self-start-end sm:text-end",
-                "label": "Top Right"
-              },
-              {
-                "value": "sm:place-self-center-start sm:text-start",
-                "label": "Middle Left"
-              },
-              {
-                "value": "sm:place-self-center sm:text-center",
-                "label": "Middle Center"
-              },
-              {
-                "value": "sm:place-self-center-end sm:text-end",
-                "label": "Middle Right"
-              },
-              {
-                "value": "sm:place-self-end-start sm:text-start",
-                "label": "Bottom Left"
-              },
-              {
-                "value": "sm:place-self-end-center sm:text-center",
-                "label": "Bottom Center"
-              },
-              {
-                "value": "sm:place-self-end sm:text-end",
-                "label": "Bottom Right"
-              }
-            ],
-            "default": "sm:place-self-center sm:text-center"
-          },
-          {
-            "type": "range",
-            "id": "content_max_width",
-            "label": "Content Maximum Width",
-            "min": 400,
-            "max": 1200,
-            "step": 20,
-            "unit": "px",
-            "default": 780
-          },
-          {
-            "type": "header",
-            "content": "Mobile Button 1"
-          },
-          {
-            "type": "text",
-            "id": "mobile_button_1_text",
-            "label": "Mobile Button 1 Text"
-          },
-          {
-            "type": "url",
-            "id": "mobile_button_1_link",
-            "label": "Mobile Button 1 Link",
-            "info": "t:sections.slideshow.blocks.image.button_1_link_info"
-          },
-          {
-            "type": "select",
-            "id": "mobile_button_1_style",
-            "label": "Mobile Button 1 Style",
-            "options": [
-              {
-                "value": "outline",
-                "label": "Outline"
-              },
-              {
-                "value": "solid",
-                "label": "Solid"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ],
-            "default": "solid"
-          },
-          {
-            "type": "color",
-            "id": "mobile_button_1_background",
-            "label": "Mobile Button 1 Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
-            "id": "mobile_button_1_text_color",
-            "label": "Mobile Button 1 Text Color",
-            "default": "#000000"
-          },
-          {
-            "type": "header",
-            "content": "Mobile Button 2"
-          },
-          {
-            "type": "text",
-            "id": "mobile_button_2_text",
-            "label": "Mobile Button 2 Text"
-          },
-          {
-            "type": "url",
-            "id": "mobile_button_2_link",
-            "label": "Mobile Button 2 Link"
-          },
-          {
-            "type": "select",
-            "id": "mobile_button_2_style",
-            "label": "Mobile Button 2 Style",
-            "options": [
-              {
-                "value": "outline",
-                "label": "Outline"
-              },
-              {
-                "value": "solid",
-                "label": "Solid"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ],
-            "default": "outline"
-          },
-          {
-            "type": "color",
-            "id": "mobile_button_2_background",
-            "label": "Mobile Button 2 Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
-            "id": "mobile_button_2_text_color",
-            "label": "Mobile Button 2 Text Color",
-            "default": "#000000"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Button 1"
-          },
-          {
-            "type": "text",
-            "id": "button_1_text",
-            "label": "Desktop Button 1 Text"
-          },
-          {
-            "type": "url",
-            "id": "button_1_link",
-            "label": "Desktop Button 1 Link",
-            "info": "t:sections.slideshow.blocks.image.button_1_link_info"
-          },
-          {
-            "type": "select",
-            "id": "button_1_style",
-            "label": "Desktop Button 1 Style",
-            "options": [
-              {
-                "value": "outline",
-                "label": "Outline"
-              },
-              {
-                "value": "solid",
-                "label": "Solid"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ],
-            "default": "solid"
-          },
-          {
-            "type": "color",
-            "id": "button_1_background",
-            "label": "Desktop Button 1 Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
-            "id": "button_1_text_color",
-            "label": "Desktop Button 1 Text Color",
-            "default": "#000000"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Button 2"
-          },
-          {
-            "type": "text",
-            "id": "button_2_text",
-            "label": "Desktop Button 2 Text"
-          },
-          {
-            "type": "url",
-            "id": "button_2_link",
-            "label": "Desktop Button 2 Link"
-          },
-          {
-            "type": "select",
-            "id": "button_2_style",
-            "label": "Desktop Button 2 Style",
-            "options": [
-              {
-                "value": "outline",
-                "label": "Outline"
-              },
-              {
-                "value": "solid",
-                "label": "Solid"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ],
-            "default": "outline"
-          },
-          {
-            "type": "color",
-            "id": "button_2_background",
-            "label": "Desktop Button 2 Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
-            "id": "button_2_text_color",
-            "label": "Desktop Button 2 Text Color",
-            "default": "#000000"
-          },
-          {
-            "type": "header",
-            "content": "Mobile Colors"
-          },
-          {
-            "type": "color",
-            "id": "mobile_text_color",
-            "label": "Mobile Text Color",
-            "default": "#ffffff"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Colors"
-          },
-          {
-            "type": "color",
-            "id": "desktop_text_color",
-            "label": "Desktop Text Color",
-            "default": "#ffffff"
-          },
-          {
-            "type": "header",
-            "content": "Background and Border"
-          },
-          {
-            "type": "color",
-            "id": "background",
-            "label": "Background Color"
-          },
-          {
-            "type": "range",
-            "id": "background_opacity",
-            "min": 0,
-            "max": 100,
-            "unit": "%",
-            "label": "Background Opacity",
-            "default": 50
-          },
-          {
-            "type": "color",
-            "id": "border_color",
-            "label": "Border Color"
-          },
-          {
-            "type": "color_background",
-            "id": "gradient_overlay",
-            "label": "Gradient Overlay",
-            "default": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)",
-            "info": "t:sections.slideshow.blocks.image.gradient_overlay_info"
-          }
-        ]
-      },
-      {
-        "type": "video",
-        "name": "t:sections.slideshow.blocks.video.name",
-        "settings": [
-          {
-            "type": "video",
-            "id": "video",
-            "label": "Desktop Video"
-          },
-          {
-            "type": "video",
-            "id": "mobile_video",
-            "label": "Mobile Video"
-          },
-          {
-            "type": "checkbox",
-            "id": "allow_sound",
-            "label": "t:sections.slideshow.blocks.video.allow_sound",
-            "default": true
-          },
-          {
-            "type": "header",
-            "content": "Mobile Content Settings"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "mobile_upper_subheading",
-            "label": "Mobile Upper Subheading",
-            "default": "Tell your story"
-          },
-          {
-            "type": "range",
-            "id": "mobile_upper_subheading_size",
-            "min": 12,
-            "max": 60,
-            "step": 1,
-            "unit": "px",
-            "label": "Mobile Upper Subheading Font Size",
-            "default": 16
-          },
-          {
-            "type": "number",
-            "id": "mobile_upper_subheading_weight",
-            "label": "Mobile Upper Subheading Font Weight",
-            "default": 400,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "mobile_title",
-            "label": "Mobile Title",
-            "default": "Video slide"
-          },
-          {
-            "type": "range",
-            "id": "mobile_title_size",
-            "min": 20,
-            "max": 100,
-            "step": 1,
-            "unit": "px",
-            "label": "Mobile Title Font Size",
-            "default": 48
-          },
-          {
-            "type": "number",
-            "id": "mobile_title_weight",
-            "label": "Mobile Title Font Weight",
-            "default": 700,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "mobile_subheading",
-            "label": "Mobile Subheading",
-            "default": "Tell your story"
-          },
-          {
-            "type": "range",
-            "id": "mobile_subheading_size",
-            "min": 12,
-            "max": 60,
-            "step": 1,
-            "unit": "px",
-            "label": "Mobile Subheading Font Size",
-            "default": 16
-          },
-          {
-            "type": "number",
-            "id": "mobile_subheading_weight",
-            "label": "Mobile Subheading Font Weight",
-            "default": 400,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Content Settings"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "upper_subheading",
-            "label": "Desktop Upper Subheading",
-            "default": "Tell your story"
-          },
-          {
-            "type": "range",
-            "id": "upper_subheading_size",
-            "min": 12,
-            "max": 60,
-            "step": 1,
-            "unit": "px",
-            "label": "Desktop Upper Subheading Font Size",
-            "default": 16
-          },
-          {
-            "type": "number",
-            "id": "upper_subheading_weight",
-            "label": "Desktop Upper Subheading Font Weight",
-            "default": 400,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "title",
-            "label": "Desktop Title",
-            "default": "Video slide"
-          },
-          {
-            "type": "range",
-            "id": "title_size",
-            "min": 20,
-            "max": 100,
-            "step": 1,
-            "unit": "px",
-            "label": "Desktop Title Font Size",
-            "default": 48
-          },
-          {
-            "type": "number",
-            "id": "title_weight",
-            "label": "Desktop Title Font Weight",
-            "default": 700,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "inline_richtext",
-            "id": "subheading",
-            "label": "Desktop Subheading",
-            "default": "Tell your story"
-          },
-          {
-            "type": "range",
-            "id": "subheading_size",
-            "min": 12,
-            "max": 60,
-            "step": 1,
-            "unit": "px",
-            "label": "Desktop Subheading Font Size",
-            "default": 16
-          },
-          {
-            "type": "number",
-            "id": "subheading_weight",
-            "label": "Desktop Subheading Font Weight",
-            "default": 400,
-            "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
-          },
-          {
-            "type": "header",
-            "content": "Content Position"
-          },
-          {
-            "type": "select",
-            "id": "mobile_text_position",
-            "label": "Mobile Content Position",
-            "options": [
-              {
-                "value": "place-self-start text-start",
-                "label": "Top Left"
-              },
-              {
-                "value": "place-self-start-center text-center",
-                "label": "Top Center"
-              },
-              {
-                "value": "place-self-start-end text-end",
-                "label": "Top Right"
-              },
-              {
-                "value": "place-self-center-start text-start",
-                "label": "Middle Left"
-              },
-              {
-                "value": "place-self-center text-center",
-                "label": "Middle Center"
-              },
-              {
-                "value": "place-self-center-end text-end",
-                "label": "Middle Right"
-              },
-              {
-                "value": "place-self-end-start text-start",
-                "label": "Bottom Left"
-              },
-              {
-                "value": "place-self-end-center text-center",
-                "label": "Bottom Center"
-              },
-              {
-                "value": "place-self-end text-end",
-                "label": "Bottom Right"
-              }
-            ],
-            "default": "place-self-center text-center"
-          },
-          {
-            "type": "select",
-            "id": "desktop_text_position",
-            "label": "Desktop Content Position",
-            "options": [
-              {
-                "value": "sm:place-self-start sm:text-start",
-                "label": "Top Left"
-              },
-              {
-                "value": "sm:place-self-start-center sm:text-center",
-                "label": "Top Center"
-              },
-              {
-                "value": "sm:place-self-start-end sm:text-end",
-                "label": "Top Right"
-              },
-              {
-                "value": "sm:place-self-center-start sm:text-start",
-                "label": "Middle Left"
-              },
-              {
-                "value": "sm:place-self-center sm:text-center",
-                "label": "Middle Center"
-              },
-              {
-                "value": "sm:place-self-center-end sm:text-end",
-                "label": "Middle Right"
-              },
-              {
-                "value": "sm:place-self-end-start sm:text-start",
-                "label": "Bottom Left"
-              },
-              {
-                "value": "sm:place-self-end-center sm:text-center",
-                "label": "Bottom Center"
-              },
-              {
-                "value": "sm:place-self-end sm:text-end",
-                "label": "Bottom Right"
-              }
-            ],
-            "default": "sm:place-self-center sm:text-center"
-          },
-          {
-            "type": "range",
-            "id": "content_max_width",
-            "label": "Content Maximum Width",
-            "min": 400,
-            "max": 1200,
-            "step": 20,
-            "unit": "px",
-            "default": 780
-          },
-          {
-            "type": "header",
-            "content": "Mobile Button 1"
-          },
-          {
-            "type": "text",
-            "id": "mobile_button_1_text",
-            "label": "Mobile Button 1 Text"
-          },
-          {
-            "type": "url",
-            "id": "mobile_button_1_link",
-            "label": "Mobile Button 1 Link",
-            "info": "t:sections.slideshow.blocks.image.button_1_link_info"
-          },
-          {
-            "type": "select",
-            "id": "mobile_button_1_style",
-            "label": "Mobile Button 1 Style",
-            "options": [
-              {
-                "value": "outline",
-                "label": "Outline"
-              },
-              {
-                "value": "solid",
-                "label": "Solid"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ],
-            "default": "solid"
-          },
-          {
-            "type": "color",
-            "id": "mobile_button_1_background",
-            "label": "Mobile Button 1 Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
-            "id": "mobile_button_1_text_color",
-            "label": "Mobile Button 1 Text Color",
-            "default": "#000000"
-          },
-          {
-            "type": "header",
-            "content": "Mobile Button 2"
-          },
-          {
-            "type": "text",
-            "id": "mobile_button_2_text",
-            "label": "Mobile Button 2 Text"
-          },
-          {
-            "type": "url",
-            "id": "mobile_button_2_link",
-            "label": "Mobile Button 2 Link"
-          },
-          {
-            "type": "select",
-            "id": "mobile_button_2_style",
-            "label": "Mobile Button 2 Style",
-            "options": [
-              {
-                "value": "outline",
-                "label": "Outline"
-              },
-              {
-                "value": "solid",
-                "label": "Solid"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ],
-            "default": "outline"
-          },
-          {
-            "type": "color",
-            "id": "mobile_button_2_background",
-            "label": "Mobile Button 2 Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
-            "id": "mobile_button_2_text_color",
-            "label": "Mobile Button 2 Text Color",
-            "default": "#000000"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Button 1"
-          },
-          {
-            "type": "text",
-            "id": "button_1_text",
-            "label": "Desktop Button 1 Text"
-          },
-          {
-            "type": "url",
-            "id": "button_1_link",
-            "label": "Desktop Button 1 Link",
-            "info": "t:sections.slideshow.blocks.image.button_1_link_info"
-          },
-          {
-            "type": "select",
-            "id": "button_1_style",
-            "label": "Desktop Button 1 Style",
-            "options": [
-              {
-                "value": "outline",
-                "label": "Outline"
-              },
-              {
-                "value": "solid",
-                "label": "Solid"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ],
-            "default": "solid"
-          },
-          {
-            "type": "color",
-            "id": "button_1_background",
-            "label": "Desktop Button 1 Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
-            "id": "button_1_text_color",
-            "label": "Desktop Button 1 Text Color",
-            "default": "#000000"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Button 2"
-          },
-          {
-            "type": "text",
-            "id": "button_2_text",
-            "label": "Desktop Button 2 Text"
-          },
-          {
-            "type": "url",
-            "id": "button_2_link",
-            "label": "Desktop Button 2 Link"
-          },
-          {
-            "type": "select",
-            "id": "button_2_style",
-            "label": "Desktop Button 2 Style",
-            "options": [
-              {
-                "value": "outline",
-                "label": "Outline"
-              },
-              {
-                "value": "solid",
-                "label": "Solid"
-              },
-              {
-                "value": "link",
-                "label": "Link"
-              }
-            ],
-            "default": "outline"
-          },
-          {
-            "type": "color",
-            "id": "button_2_background",
-            "label": "Desktop Button 2 Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color",
-            "id": "button_2_text_color",
-            "label": "Desktop Button 2 Text Color",
-            "default": "#000000"
-          },
-          {
-            "type": "header",
-            "content": "Mobile Colors"
-          },
-          {
-            "type": "color",
-            "id": "mobile_text_color",
-            "label": "Mobile Text Color",
-            "default": "#ffffff"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Colors"
-          },
-          {
-            "type": "color",
-            "id": "desktop_text_color",
-            "label": "Desktop Text Color",
-            "default": "#ffffff"
-          },
-          {
-            "type": "header",
-            "content": "Background and Border"
-          },
-          {
-            "type": "color",
-            "id": "background",
-            "label": "Background Color"
-          },
-          {
-            "type": "range",
-            "id": "background_opacity",
-            "min": 0,
-            "max": 100,
-            "unit": "%",
-            "label": "Background Opacity",
-            "default": 50
-          },
-          {
-            "type": "color",
-            "id": "border_color",
-            "label": "Border Color"
-          },
-          {
-            "type": "color_background",
-            "id": "gradient_overlay",
-            "label": "Gradient Overlay",
-            "default": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)",
-            "info": "t:sections.slideshow.blocks.image.gradient_overlay_info"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "t:sections.slideshow.presets.slideshow.name",
-        "blocks": [
-          {
-            "type": "image",
-            "settings": {
-              "title": "Slide 1"
+    {
+      "type": "checkbox",
+      "id": "show_next_section_button",
+      "label": "t:sections.slideshow.show_next_section_button",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "media_size",
+      "label": "t:global.image.size",
+      "options": [
+        {
+          "value": "auto",
+          "label": "t:global.sizes.original_image_ratio"
+        },
+        {
+          "value": "xs",
+          "label": "t:global.sizes.x_small"
+        },
+        {
+          "value": "sm",
+          "label": "t:global.sizes.small"
+        },
+        {
+          "value": "md",
+          "label": "t:global.sizes.medium"
+        },
+        {
+          "value": "lg",
+          "label": "t:global.sizes.large"
+        },
+        {
+          "value": "fill",
+          "label": "t:global.sizes.fit_screen"
+        }
+      ],
+      "info": "t:global.image.ratio_avoid_cropping_info",
+      "default": "auto"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "t:sections.slideshow.auto_rotate_between_slides",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_pause_on_video",
+      "label": "t:sections.slideshow.autoplay_pause_on_video",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "cycle_speed",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "sec",
+      "label": "t:sections.slideshow.cycle_speed",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "t:global.colors.category"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "t:sections.slideshow.background",
+      "info": "t:sections.slideshow.background_info",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "controls_color",
+      "label": "t:sections.slideshow.controls_color",
+      "info": "t:sections.slideshow.controls_color_info",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:sections.slideshow.blocks.image.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Mobile Content Settings"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "mobile_upper_subheading",
+          "label": "Mobile Upper Subheading",
+          "default": "New arrival"
+        },
+        {
+          "type": "range",
+          "id": "mobile_upper_subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile Upper Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "mobile_upper_subheading_weight",
+          "label": "Mobile Upper Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "mobile_title",
+          "label": "Mobile Title",
+          "default": "Image slide"
+        },
+        {
+          "type": "range",
+          "id": "mobile_title_size",
+          "min": 20,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile Title Font Size",
+          "default": 48
+        },
+        {
+          "type": "number",
+          "id": "mobile_title_weight",
+          "label": "Mobile Title Font Weight",
+          "default": 700,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "mobile_subheading",
+          "label": "Mobile Subheading",
+          "default": "Tell your fantastic story"
+        },
+        {
+          "type": "range",
+          "id": "mobile_subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "mobile_subheading_weight",
+          "label": "Mobile Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Content Settings"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "upper_subheading",
+          "label": "Desktop Upper Subheading",
+          "default": "New arrival"
+        },
+        {
+          "type": "range",
+          "id": "upper_subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop Upper Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "upper_subheading_weight",
+          "label": "Desktop Upper Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Desktop Title",
+          "default": "Image slide"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 20,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop Title Font Size",
+          "default": 48
+        },
+        {
+          "type": "number",
+          "id": "title_weight",
+          "label": "Desktop Title Font Weight",
+          "default": 700,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subheading",
+          "label": "Desktop Subheading",
+          "default": "Tell your fantastic story"
+        },
+        {
+          "type": "range",
+          "id": "subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "subheading_weight",
+          "label": "Desktop Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "header",
+          "content": "Images"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "info": "t:sections.slideshow.blocks.image.desktop_image_size_recommendation",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image",
+          "info": "t:sections.slideshow.blocks.image.mobile_image_size_recommendation"
+        },
+        {
+          "type": "header",
+          "content": "Content Position"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "Mobile Content Position",
+          "options": [
+            {
+              "value": "place-self-start text-start",
+              "label": "Top Left"
+            },
+            {
+              "value": "place-self-start-center text-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "place-self-start-end text-end",
+              "label": "Top Right"
+            },
+            {
+              "value": "place-self-center-start text-start",
+              "label": "Middle Left"
+            },
+            {
+              "value": "place-self-center text-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "place-self-center-end text-end",
+              "label": "Middle Right"
+            },
+            {
+              "value": "place-self-end-start text-start",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "place-self-end-center text-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "place-self-end text-end",
+              "label": "Bottom Right"
             }
-          },
-          {
-            "type": "image",
-            "settings": {
-              "title": "Slide 2"
+          ],
+          "default": "place-self-center text-center"
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_position",
+          "label": "Desktop Content Position",
+          "options": [
+            {
+              "value": "sm:place-self-start sm:text-start",
+              "label": "Top Left"
+            },
+            {
+              "value": "sm:place-self-start-center sm:text-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "sm:place-self-start-end sm:text-end",
+              "label": "Top Right"
+            },
+            {
+              "value": "sm:place-self-center-start sm:text-start",
+              "label": "Middle Left"
+            },
+            {
+              "value": "sm:place-self-center sm:text-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "sm:place-self-center-end sm:text-end",
+              "label": "Middle Right"
+            },
+            {
+              "value": "sm:place-self-end-start sm:text-start",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "sm:place-self-end-center sm:text-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "sm:place-self-end sm:text-end",
+              "label": "Bottom Right"
             }
+          ],
+          "default": "sm:place-self-center sm:text-center"
+        },
+        {
+          "type": "range",
+          "id": "content_max_width",
+          "label": "Content Maximum Width",
+          "min": 400,
+          "max": 1200,
+          "step": 20,
+          "unit": "px",
+          "default": 780
+        },
+        {
+          "type": "header",
+          "content": "Mobile Button 1"
+        },
+        {
+          "type": "text",
+          "id": "mobile_button_1_text",
+          "label": "Mobile Button 1 Text"
+        },
+        {
+          "type": "url",
+          "id": "mobile_button_1_link",
+          "label": "Mobile Button 1 Link",
+          "info": "t:sections.slideshow.blocks.image.button_1_link_info"
+        },
+        {
+          "type": "select",
+          "id": "mobile_button_1_style",
+          "label": "Mobile Button 1 Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "solid",
+              "label": "Solid"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "color",
+          "id": "mobile_button_1_background",
+          "label": "Mobile Button 1 Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "mobile_button_1_text_color",
+          "label": "Mobile Button 1 Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Button 2"
+        },
+        {
+          "type": "text",
+          "id": "mobile_button_2_text",
+          "label": "Mobile Button 2 Text"
+        },
+        {
+          "type": "url",
+          "id": "mobile_button_2_link",
+          "label": "Mobile Button 2 Link"
+        },
+        {
+          "type": "select",
+          "id": "mobile_button_2_style",
+          "label": "Mobile Button 2 Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "solid",
+              "label": "Solid"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "outline"
+        },
+        {
+          "type": "color",
+          "id": "mobile_button_2_background",
+          "label": "Mobile Button 2 Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "mobile_button_2_text_color",
+          "label": "Mobile Button 2 Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Button 1"
+        },
+        {
+          "type": "text",
+          "id": "button_1_text",
+          "label": "Desktop Button 1 Text"
+        },
+        {
+          "type": "url",
+          "id": "button_1_link",
+          "label": "Desktop Button 1 Link",
+          "info": "t:sections.slideshow.blocks.image.button_1_link_info"
+        },
+        {
+          "type": "select",
+          "id": "button_1_style",
+          "label": "Desktop Button 1 Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "solid",
+              "label": "Solid"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "color",
+          "id": "button_1_background",
+          "label": "Desktop Button 1 Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_1_text_color",
+          "label": "Desktop Button 1 Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Button 2"
+        },
+        {
+          "type": "text",
+          "id": "button_2_text",
+          "label": "Desktop Button 2 Text"
+        },
+        {
+          "type": "url",
+          "id": "button_2_link",
+          "label": "Desktop Button 2 Link"
+        },
+        {
+          "type": "select",
+          "id": "button_2_style",
+          "label": "Desktop Button 2 Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "solid",
+              "label": "Solid"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "outline"
+        },
+        {
+          "type": "color",
+          "id": "button_2_background",
+          "label": "Desktop Button 2 Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_2_text_color",
+          "label": "Desktop Button 2 Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Colors"
+        },
+        {
+          "type": "color",
+          "id": "mobile_text_color",
+          "label": "Mobile Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Colors"
+        },
+        {
+          "type": "color",
+          "id": "desktop_text_color",
+          "label": "Desktop Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Slide Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "slide_clickable",
+          "label": "Make slide clickable",
+          "default": false
+        },
+        {
+          "type": "url",
+          "id": "slide_link",
+          "label": "Slide URL",
+          "info": "Enter the URL to link to when the slide is clicked."
+        },
+        {
+          "type": "header",
+          "content": "Background and Border"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background Color"
+        },
+        {
+          "type": "range",
+          "id": "background_opacity",
+          "min": 0,
+          "max": 100,
+          "unit": "%",
+          "label": "Background Opacity",
+          "default": 50
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border Color"
+        },
+        {
+          "type": "color_background",
+          "id": "gradient_overlay",
+          "label": "Gradient Overlay",
+          "default": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)",
+          "info": "t:sections.slideshow.blocks.image.gradient_overlay_info"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "t:sections.slideshow.blocks.video.name",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Desktop Video"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Mobile Video"
+        },
+        {
+          "type": "checkbox",
+          "id": "allow_sound",
+          "label": "t:sections.slideshow.blocks.video.allow_sound",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Mobile Content Settings"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "mobile_upper_subheading",
+          "label": "Mobile Upper Subheading",
+          "default": "Tell your story"
+        },
+        {
+          "type": "range",
+          "id": "mobile_upper_subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile Upper Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "mobile_upper_subheading_weight",
+          "label": "Mobile Upper Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "mobile_title",
+          "label": "Mobile Title",
+          "default": "Video slide"
+        },
+        {
+          "type": "range",
+          "id": "mobile_title_size",
+          "min": 20,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile Title Font Size",
+          "default": 48
+        },
+        {
+          "type": "number",
+          "id": "mobile_title_weight",
+          "label": "Mobile Title Font Weight",
+          "default": 700,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "mobile_subheading",
+          "label": "Mobile Subheading",
+          "default": "Tell your story"
+        },
+        {
+          "type": "range",
+          "id": "mobile_subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "mobile_subheading_weight",
+          "label": "Mobile Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Content Settings"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "upper_subheading",
+          "label": "Desktop Upper Subheading",
+          "default": "Tell your story"
+        },
+        {
+          "type": "range",
+          "id": "upper_subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop Upper Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "upper_subheading_weight",
+          "label": "Desktop Upper Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Desktop Title",
+          "default": "Video slide"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 20,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop Title Font Size",
+          "default": 48
+        },
+        {
+          "type": "number",
+          "id": "title_weight",
+          "label": "Desktop Title Font Weight",
+          "default": 700,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subheading",
+          "label": "Desktop Subheading",
+          "default": "Tell your story"
+        },
+        {
+          "type": "range",
+          "id": "subheading_size",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop Subheading Font Size",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "subheading_weight",
+          "label": "Desktop Subheading Font Weight",
+          "default": 400,
+          "info": "Enter a value between 100 and 900. Normal = 400, Bold = 700"
+        },
+        {
+          "type": "header",
+          "content": "Content Position"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "Mobile Content Position",
+          "options": [
+            {
+              "value": "place-self-start text-start",
+              "label": "Top Left"
+            },
+            {
+              "value": "place-self-start-center text-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "place-self-start-end text-end",
+              "label": "Top Right"
+            },
+            {
+              "value": "place-self-center-start text-start",
+              "label": "Middle Left"
+            },
+            {
+              "value": "place-self-center text-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "place-self-center-end text-end",
+              "label": "Middle Right"
+            },
+            {
+              "value": "place-self-end-start text-start",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "place-self-end-center text-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "place-self-end text-end",
+              "label": "Bottom Right"
+            }
+          ],
+          "default": "place-self-center text-center"
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_position",
+          "label": "Desktop Content Position",
+          "options": [
+            {
+              "value": "sm:place-self-start sm:text-start",
+              "label": "Top Left"
+            },
+            {
+              "value": "sm:place-self-start-center sm:text-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "sm:place-self-start-end sm:text-end",
+              "label": "Top Right"
+            },
+            {
+              "value": "sm:place-self-center-start sm:text-start",
+              "label": "Middle Left"
+            },
+            {
+              "value": "sm:place-self-center sm:text-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "sm:place-self-center-end sm:text-end",
+              "label": "Middle Right"
+            },
+            {
+              "value": "sm:place-self-end-start sm:text-start",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "sm:place-self-end-center sm:text-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "sm:place-self-end sm:text-end",
+              "label": "Bottom Right"
+            }
+          ],
+          "default": "sm:place-self-center sm:text-center"
+        },
+        {
+          "type": "range",
+          "id": "content_max_width",
+          "label": "Content Maximum Width",
+          "min": 400,
+          "max": 1200,
+          "step": 20,
+          "unit": "px",
+          "default": 780
+        },
+        {
+          "type": "header",
+          "content": "Mobile Button 1"
+        },
+        {
+          "type": "text",
+          "id": "mobile_button_1_text",
+          "label": "Mobile Button 1 Text"
+        },
+        {
+          "type": "url",
+          "id": "mobile_button_1_link",
+          "label": "Mobile Button 1 Link",
+          "info": "t:sections.slideshow.blocks.image.button_1_link_info"
+        },
+        {
+          "type": "select",
+          "id": "mobile_button_1_style",
+          "label": "Mobile Button 1 Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "solid",
+              "label": "Solid"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "color",
+          "id": "mobile_button_1_background",
+          "label": "Mobile Button 1 Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "mobile_button_1_text_color",
+          "label": "Mobile Button 1 Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Button 2"
+        },
+        {
+          "type": "text",
+          "id": "mobile_button_2_text",
+          "label": "Mobile Button 2 Text"
+        },
+        {
+          "type": "url",
+          "id": "mobile_button_2_link",
+          "label": "Mobile Button 2 Link"
+        },
+        {
+          "type": "select",
+          "id": "mobile_button_2_style",
+          "label": "Mobile Button 2 Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "solid",
+              "label": "Solid"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "outline"
+        },
+        {
+          "type": "color",
+          "id": "mobile_button_2_background",
+          "label": "Mobile Button 2 Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "mobile_button_2_text_color",
+          "label": "Mobile Button 2 Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Button 1"
+        },
+        {
+          "type": "text",
+          "id": "button_1_text",
+          "label": "Desktop Button 1 Text"
+        },
+        {
+          "type": "url",
+          "id": "button_1_link",
+          "label": "Desktop Button 1 Link",
+          "info": "t:sections.slideshow.blocks.image.button_1_link_info"
+        },
+        {
+          "type": "select",
+          "id": "button_1_style",
+          "label": "Desktop Button 1 Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "solid",
+              "label": "Solid"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "color",
+          "id": "button_1_background",
+          "label": "Desktop Button 1 Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_1_text_color",
+          "label": "Desktop Button 1 Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Button 2"
+        },
+        {
+          "type": "text",
+          "id": "button_2_text",
+          "label": "Desktop Button 2 Text"
+        },
+        {
+          "type": "url",
+          "id": "button_2_link",
+          "label": "Desktop Button 2 Link"
+        },
+        {
+          "type": "select",
+          "id": "button_2_style",
+          "label": "Desktop Button 2 Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "solid",
+              "label": "Solid"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "outline"
+        },
+        {
+          "type": "color",
+          "id": "button_2_background",
+          "label": "Desktop Button 2 Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_2_text_color",
+          "label": "Desktop Button 2 Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Colors"
+        },
+        {
+          "type": "color",
+          "id": "mobile_text_color",
+          "label": "Mobile Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Colors"
+        },
+        {
+          "type": "color",
+          "id": "desktop_text_color",
+          "label": "Desktop Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Slide Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "slide_clickable",
+          "label": "Make slide clickable",
+          "default": false
+        },
+        {
+          "type": "url",
+          "id": "slide_link",
+          "label": "Slide URL",
+          "info": "Enter the URL to link to when the slide is clicked."
+        },
+        {
+          "type": "header",
+          "content": "Background and Border"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background Color"
+        },
+        {
+          "type": "range",
+          "id": "background_opacity",
+          "min": 0,
+          "max": 100,
+          "unit": "%",
+          "label": "Background Opacity",
+          "default": 50
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border Color"
+        },
+        {
+          "type": "color_background",
+          "id": "gradient_overlay",
+          "label": "Gradient Overlay",
+          "default": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)",
+          "info": "t:sections.slideshow.blocks.image.gradient_overlay_info"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "title": "Slide 1"
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "title": "Slide 2"
+          }
+        }
+      ]
+    }
+  ]
+}
+
   {% endschema %}
   
