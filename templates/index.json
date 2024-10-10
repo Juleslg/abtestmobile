@@ -711,7 +711,7 @@
         "text_FYTBNy": {
           "type": "text",
           "settings": {
-            "text": "Onomao"
+            "text": "NACHHALTIG & HANDGEMACHT"
           }
         }
       },
@@ -723,7 +723,7 @@
       ],
       "settings": {
         "separate_section_with_border": true,
-        "scrolling_speed": 0.1,
+        "scrolling_speed": 0.2,
         "scroll_direction": "left",
         "text_font": "heading",
         "text_font_size_mobile": 24,
