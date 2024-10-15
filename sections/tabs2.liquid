@@ -74,8 +74,7 @@
 
       
     
-      <!-- MOBILE LAYOUT -->
-      {%- comment -%}Mobile layout remains unchanged{%- endcomment -%}
+     
     </div>
   </div>
 </div>
@@ -233,26 +232,23 @@ padding-bottom: unset ;
   padding: 20px; 
   overflow: visible;
   height: 100%;
-  align-items: start; /* Ensure sticky behavior works */
+  align-items: start; 
 }
 
 
 .sidecart {
     align-self: start;
     position: sticky;
-    top: 7.9rem; /* Adjust this value based on your header height */
-    display: flex;
+    top: 7.9rem; 
     flex-direction: column;
-    max-height: calc(100vh - 8.9rem); /* Adjust based on your layout */
+    max-height: calc(100vh - 8.9rem);
   }
 
   @media screen and (max-width: 768px) {
   .maincontainer {
     grid-template-columns: 1fr;
     gap: 10px;
-    padding-bottom: 60px; /* Add space for the sticky button */
-  }
-
+    padding-bottom: 60px; 
   .sidecart-overlay {
     display: none;
     position: fixed;
@@ -269,7 +265,7 @@ padding-bottom: unset ;
   }
 
   .sidecart {
-    z-index: 101; /* Ensure the sidecart is above the overlay */
+    z-index: 101; 
   }
 
   .sidecart {
@@ -343,7 +339,7 @@ padding-bottom: unset ;
   .sidecart .h6 {
     cursor: pointer;
     position: relative;
-    padding-right: 30px; /* Make room for the close icon */
+    padding-right: 30px; 
   }
 
   .sidecart .h6::after {
@@ -549,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
   mobileToggle.className = 'mobile-sidecart-toggle';
   mobileToggle.innerHTML = 'Your Selection <span class="sidecart-count">(0)</span>';
   
-  // Create mobile progress bar container
+  //progress bar container
   const mobileProgressContainer = document.createElement('div');
   mobileProgressContainer.className = 'mobile-progress-container';
   mobileProgressContainer.innerHTML = `
@@ -563,7 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const sidecartHeader = sidecart.querySelector('.h6');
 
-  // Create overlay element
+  //overlay element
   const overlay = document.createElement('div');
   overlay.className = 'sidecart-overlay';
   document.body.appendChild(overlay);
@@ -689,7 +685,7 @@ document.addEventListener('DOMContentLoaded', function() {
       sidecartForm.appendChild(quantityInput);
     }
 
-    // Add event listeners for quantity buttons and remove buttons
+    //event listeners for quantity buttons and remove buttons
     document.querySelectorAll('.quantity-button').forEach(button => {
       button.addEventListener('click', updateQuantity);
     });
@@ -700,7 +696,7 @@ document.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', removeFromSidecart);
     });
 
-    // Add event listener for "Delete All" link
+    // event listener for "Delete All" link
     const deleteAllLink = document.getElementById('delete-all-link');
     if (deleteAllLink) {
       deleteAllLink.addEventListener('click', function(event) {
@@ -827,17 +823,17 @@ document.addEventListener('DOMContentLoaded', function() {
       // Clear the selection
       deleteAllItems();
 
-      // Update sidecart with success message
+      
       sidecartItems.innerHTML = '<div class="sidecart-text">{{ "sections.tabs2.set_added_to_cart" | t }}</div>';
       
-      // Hide the "Add to Cart" button
+      
       addToCartButton2.style.display = 'none';
       
-      // Update mobile toggle and progress bar
+      
       mobileToggle.style.display = 'none';
       mobileProgressContainer.style.display = 'none';
 
-      // Automatically close the sidecart on mobile after a delay
+      // Automatically close the sidecart on mobile after a delay (not working)
       setTimeout(() => {
         sidecart.classList.remove('active');
         overlay.classList.remove('active');
