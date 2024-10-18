@@ -92,6 +92,16 @@
             "show_below_gallery": false
           }
         },
+        "complementary_products_39QqaP": {
+          "type": "complementary_products",
+          "settings": {
+            "title": "",
+            "products_count": 1,
+            "show_below_gallery": false,
+            "stack_products": false,
+            "show_quick_buy": true
+          }
+        },
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c": {
           "type": "feature_with_icon",
           "settings": {
@@ -187,6 +197,7 @@
         "variant_picker",
         "cc1c28f9-9759-4de3-bcdd-b6b74d5a20a3",
         "description",
+        "complementary_products_39QqaP",
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
         "6a9dd1a0-a95e-4beb-bdfe-fb500f1306ff",
         "4152ba1c-dbde-46e6-acf1-4b6db7fcb1f1",
